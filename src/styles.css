@@ -33,3 +33,12 @@ ul {
 a {
     text-decoration: none;
 }
+
+.scroll_bar_whatsapp::-webkit-scrollbar {
+    width: 6px;
+    background-color: none;
+}
+
+.scroll_bar_whatsapp::-webkit-scrollbar-thumb {
+    background-color: #C8CBCD;
+}
