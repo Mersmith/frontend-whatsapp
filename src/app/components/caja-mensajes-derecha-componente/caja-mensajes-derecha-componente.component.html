@@ -1,0 +1,16 @@
+<ng-container *ngIf="mensajes && mensajes.length > 0; else noMensajes">
+    
+    <!-- MENSAJES -->
+    <div *ngFor="let mensaje of mensajes" [ngClass]="{ 
+        'whatsapp_mensaje': true,
+        'amigo_mensaje': mensaje.envio === 0,
+        'mi_mensaje': mensaje.envio === 1,
+    }">
+        <p>{{mensaje.fecha}}</p>
+    </div>
+    
+</ng-container>
+
+<ng-template #noMensajes>
+    <p>No hay mensajes disponibles.</p>
+</ng-template>

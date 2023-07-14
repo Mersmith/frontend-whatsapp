@@ -29,12 +29,3 @@
   align-items: center;
   flex-direction: column;
 }
-
-.scroll_bar_whatsapp::-webkit-scrollbar {
-  width: 6px;
-  background-color: none;
-}
-
-.scroll_bar_whatsapp::-webkit-scrollbar-thumb {
-  background-color: #C8CBCD;
-}

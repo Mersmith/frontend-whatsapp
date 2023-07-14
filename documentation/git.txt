@@ -4,3 +4,12 @@ git commit -m "Master"
 git log
 git remote add origin https://github.com/Mersmith/frontend-whatsapp.git
 git push origin master
+
+git clone https://github.com/Mersmith/frontend-whatsapp.git
+
+git checkout -b Mensajes
+git branch
+git status
+git add .
+git commit -m "Avance de mensajes"
+git push origin Mensajes
