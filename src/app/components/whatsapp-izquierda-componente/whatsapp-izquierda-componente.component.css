@@ -1,0 +1,40 @@
+.contenedor_whatsapp_cabecera_izquierda {
+  position: relative;
+  width: 100%;
+  height: 60px;
+  background: #ededed;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 15px;
+}
+
+.contenedor_whatsapp_buscar_izquierda {
+  position: relative;
+  width: 100%;
+  height: 55px;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 15px;
+  border-bottom: 1px solid #e9edef;
+}
+
+.contenedor_whatsapp_lista_chat_izquierda {
+  position: relative;
+  height: calc(100% - 115px);
+  overflow-y: auto;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.scroll_bar_whatsapp::-webkit-scrollbar {
+  width: 6px;
+  background-color: none;
+}
+
+.scroll_bar_whatsapp::-webkit-scrollbar-thumb {
+  background-color: #C8CBCD;
+}

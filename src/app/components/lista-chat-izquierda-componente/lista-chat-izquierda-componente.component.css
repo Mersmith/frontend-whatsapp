@@ -1,0 +1,104 @@
+.lista_chat_item {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    cursor: pointer;
+}
+
+.lista_chat_item:hover {
+    background: #f5f5f5;
+}
+
+.lista_chat_item .chat_item_imagen {
+    position: relative;
+    min-width: 45px;
+    height: 45px;
+    overflow: hidden;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.perfil_imagen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.lista_chat_item .chat_item_archivado {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.chat_item_archivado i {
+    font-size: 1.5em;
+    cursor: pointer;
+    color: #00a884;
+}
+
+.lista_chat_item .chat_item_detalle {
+    position: relative;
+    width: 100%;
+}
+
+.lista_chat_item .chat_item_detalle .chat_item_nombre {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+.lista_chat_item .chat_item_detalle .chat_item_nombre h4 {
+    font-size: 1.1em;
+    font-weight: 500;
+    color: #111;
+}
+
+.lista_chat_item .chat_item_detalle .chat_item_nombre .chat_item_tiempo {
+    font-size: 0.75em;
+    color: #667781;
+}
+
+.lista_chat_item .chat_item_detalle .chat_item_mensaje {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.lista_chat_item .chat_item_detalle .chat_item_mensaje b {
+    background: #06d755;
+    color: #fff;
+    min-width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.75rem;
+}
+
+.lista_chat_item .chat_item_detalle .chat_item_mensaje p {
+    color: #aaa;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    font-size: 0.9em;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* ACTIVO */
+.lista_chat_item.chat_activo {
+    background: #f0f2f5;
+    border-bottom: none;
+}
+
+/* NO LEÍDO */
+.lista_chat_item.chat_no_leido .chat_item_detalle .chat_item_nombre .chat_item_tiempo {
+    color: #06d755;
+}

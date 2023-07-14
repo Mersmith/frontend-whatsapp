@@ -1,1 +1,35 @@
-/* You can add global styles to this file, and also import other style files */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+:root {
+    --color-fondo-pagina: #f7f8fa;
+
+    --color-primario: #16315c;
+    --color-primario-hover: #0f2953;
+
+    --color-secundario: #fff;
+    --color-secundario-hover: #f7f8fa;
+
+    --color-terciario: #e33c2f;
+    --color-terciario-hover: #db3024;
+
+    --color-cuaternario: #ffde28;
+    --color-cuaternario-hover: #f8d71d;
+
+    --color-quinario: #080C24;
+    --color-quinario-hover: #040714;
+
+    --color-sombra: 0px 8px 20px rgba(7, 36, 95, 0.15);
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}

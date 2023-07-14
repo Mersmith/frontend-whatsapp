@@ -1,0 +1,11 @@
+ng new frontend-whatsapp
+
+ng generate component pages/inicio-pagina
+
+ng generate component components/whatsapp-izquierda-componente
+ng generate component components/whatsapp-derecha-componente
+ng generate component components/cabecera-izquierda-componente
+ng generate component components/cabecera-derecha-componente
+ng generate component components/buscar-derecha-componente
+ng generate component components/buscar-izquierda-componente
+ng generate component components/lista-chat-izquierda-componente
