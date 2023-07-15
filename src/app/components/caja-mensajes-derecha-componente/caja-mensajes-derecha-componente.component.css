@@ -66,13 +66,27 @@
         transparent);
   }
   
-  .whatsapp_mensaje ion-icon {
+  .whatsapp_mensaje i {
     font-size: 1.2em;
     cursor: pointer;
     position: relative;
     top: 3px;
-    /*color: #8696a0;*/
+  }
+
+  .whatsapp_mensaje .enviado{
+    color: #333333;
+  }
+
+  .whatsapp_mensaje .recibido{
+    color: #8696a0;
+  }  
+
+  .whatsapp_mensaje .leido{
     color: #53bdeb;
+  }
+
+  .whatsapp_mensaje .fallo{
+    color: #fb0000;
   }
   
   .amigo_mensaje+.amigo_mensaje,
