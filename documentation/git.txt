@@ -13,3 +13,10 @@ git status
 git add .
 git commit -m "Avance de mensajes"
 git push origin Mensajes
+
+git checkout -b Chat
+git branch
+git status
+git add .
+git commit -m "Avance de tipo de mensaje"
+git push origin Chat
