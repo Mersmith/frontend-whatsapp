@@ -1,31 +1,23 @@
 <ng-container *ngIf="mensajes && mensajes.length > 0; else noMensajes">
 
-
     <!-- MENSAJES -->
     <ng-container *ngFor="let mensaje of mensajes">
 
-        <div *ngIf="mensaje.id_fecha == 1">
-            <div>
-                {{mensaje.fecha | date:'dd/MM/YYYY'}}
-            </div>
+        <div *ngIf="mensaje.id_fecha == 1" [ngClass]="{
+            'whatsapp_mensaje_fechas': true
+          }">
+            {{mensaje.fecha | date:'dd/MM/YYYY'}}
         </div>
 
         <!-- MENSAJE -->
         <div [ngClass]="{ 
         'whatsapp_mensaje': true,
         'amigo_mensaje': mensaje.envio === 0,
-        'mi_mensaje': mensaje.envio === 1,
-    }">
-            <p>{{mensaje.content }}
-                <br>
-                <span>{{ formatearHora(mensaje.hora) }}</span>
-                <i *ngIf="mensaje.envio == 1" [ngClass]="{ 
-                    'enviado': mensaje.sent === 2,
-                    'recibido': mensaje.sent === 1,
-                    'leido': mensaje.sent === 3,
-                    'fallo': mensaje.sent === 0,
-                }">x</i>
-            </p>
+        'mi_mensaje': mensaje.envio === 1,        
+        }">
+            <div class="contendor_mensaje">
+                <app-mensaje-derecha-componente [mensaje]="mensaje"></app-mensaje-derecha-componente>              
+            </div>
         </div>
 
     </ng-container>
