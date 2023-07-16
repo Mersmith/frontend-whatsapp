@@ -1,0 +1,18 @@
+<ng-container *ngIf="tipoMensaje === 'text'">
+    <p>{{mensaje.content }}</p>
+    <span>{{ formatearHora(mensaje.hora) }}</span>
+    <i *ngIf="mensaje.envio == 1" [ngClass]="{ 
+                'enviado': mensaje.sent === 2,
+                'recibido': mensaje.sent === 1,
+                'leido': mensaje.sent === 3,
+                'fallo': mensaje.sent === 0,
+            }">x</i>
+</ng-container>
+
+<ng-container *ngIf="tipoMensaje === 'interactive'">
+    <p>{{tipoMensaje }}</p>
+</ng-container>
+
+<ng-container *ngIf="tipoMensaje === 'image'">
+    <p>{{tipoMensaje }}</p>
+</ng-container>

@@ -1,100 +1,91 @@
+.whatsapp_mensaje_fechas {
+  width: fit-content;
+  background-color: white;
+  margin: 5px auto;
+  padding: 5px 10px;
+  border-radius: 5px;
+  box-shadow: 0 1px 0.5px rgba(11, 20, 26, .13);
+  color: #667781;
+  font-size: 14px;
+  position: sticky;
+  top: 0;
+  background-color: white;
+  z-index: 1;
+}
 
 .whatsapp_mensaje {
-    position: relative;
-    display: flex;
-    width: 100%;
-    margin: 8px 0px;
-    margin-bottom: 2px;
-  }
-  
-  .whatsapp_mensaje p {
-    position: relative;
-    right: 0;
-    text-align: right;
-    max-width: 65%;
-    padding: 12px;
-    background: #dcf8c8;
-    border-radius: 10px;
-    font-size: 0.9em;
-  }
-  
-  .whatsapp_mensaje p::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: -12px;
-    width: 20px;
-    height: 20px;
-    background: linear-gradient(135deg,
-        #dcf8c6 0%,
-        #dcf8c6 50%,
-        transparent 50%,
-        transparent);
-  }
-  
-  .whatsapp_mensaje p span {
-    display: lista_chat_item;
-    margin-top: 5px;
-    font-size: 0.85em;
-    opacity: 0.5;
-  }
-  
-  .mi_mensaje {
-    justify-content: flex-end;
-  }
-  
-  .amigo_mensaje {
-    justify-content: flex-start;
-  }
-  
-  .amigo_mensaje p {
-    background: #fff;
-    text-align: left;
-  }
-  
-  .whatsapp_mensaje.amigo_mensaje p::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: -12px;
-    width: 20px;
-    height: 20px;
-    background: linear-gradient(225deg,
-        #fff 0%,
-        #fff 50%,
-        transparent 50%,
-        transparent);
-  }
-  
-  .whatsapp_mensaje i {
-    font-size: 1.2em;
-    cursor: pointer;
-    position: relative;
-    top: 3px;
-  }
+  position: relative;
+  display: flex;
+  width: 100%;
+  margin: 8px 0px;
+  margin-bottom: 2px;
+}
 
-  .whatsapp_mensaje .enviado{
-    color: #333333;
-  }
+.mi_mensaje {
+  justify-content: flex-end;
+}
 
-  .whatsapp_mensaje .recibido{
-    color: #8696a0;
-  }  
+.amigo_mensaje {
+  justify-content: flex-start;
+}
 
-  .whatsapp_mensaje .leido{
-    color: #53bdeb;
-  }
+.amigo_mensaje+.amigo_mensaje,
+.mi_mensaje+.mi_mensaje {
+  margin-top: 2px;
+}
 
-  .whatsapp_mensaje .fallo{
-    color: #fb0000;
-  }
-  
-  .amigo_mensaje+.amigo_mensaje,
-  .mi_mensaje+.mi_mensaje {
-    margin-top: 2px;
-  }
-  
-  .amigo_mensaje+.mi_mensaje {
-    margin-top: 8px;
-  }
-  
+.amigo_mensaje+.mi_mensaje {
+  margin-top: 8px;
+}
+
+/* CONTENEDOR MENSAJE */
+.whatsapp_mensaje .contendor_mensaje {
+  position: relative;
+  right: 0;
+  max-width: 65%;
+  padding: 12px;
+  border-radius: 10px;
+  font-size: 0.9em;
+  box-shadow: 0 1px 0.5px rgba(11, 20, 26, .13);
+}
+
+.whatsapp_mensaje .contendor_mensaje::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 20px;
+  height: 20px;
+}
+
+.mi_mensaje .contendor_mensaje::before {
+  right: -12px;
+  background: linear-gradient(135deg,
+      #dcf8c6 0%,
+      #dcf8c6 50%,
+      transparent 50%,
+      transparent);
+}
+
+.amigo_mensaje .contendor_mensaje::before {
+  left: -12px;
+  background: linear-gradient(225deg,
+      #fff 0%,
+      #fff 50%,
+      transparent 50%,
+      transparent);
+}
+
+.amigo_mensaje+.amigo_mensaje .contendor_mensaje::before,
+.mi_mensaje+.mi_mensaje .contendor_mensaje::before {
+  display: none;
+}
+
+.mi_mensaje .contendor_mensaje {
+  background: #dcf8c8;
+  text-align: right;
+}
+
+.amigo_mensaje .contendor_mensaje {
+  background: #fff;
+  text-align: left;
+}

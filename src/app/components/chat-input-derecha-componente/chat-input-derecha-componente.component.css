@@ -1,0 +1,90 @@
+ul {
+    display: flex;
+    width: 100%;
+    padding: 15px;
+    z-index: 1000;
+    background: #f0f0f0;
+}
+
+i {
+    cursor: pointer;
+    font-size: 1.8em;
+    color: #51585c;
+}
+
+i:nth-child(1) {
+    margin-right: 15px;
+}
+
+.chat_input_text {
+    width: 100%;
+}
+
+input[type=text] {
+    position: relative;
+    width: 100%;
+    padding: 10px 20px;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    border-radius: 8px;
+}
+
+input[type=text]::placeholder {
+    font-size: 14px;
+    color: gray;
+  }
+
+.chat_input_iconos_item {
+    position: relative;
+}
+
+/* EMOTICIONES */
+.contenedor_icono_opciones_emoticones {
+    position: fixed;
+    overflow: visible;
+    bottom: 70px;
+    transform-origin: right top;
+    transform: translateY(100%);
+    background-color: red;
+    width: 100%;
+    transition: transform 0.5s ease;
+    display: none;
+}
+
+/* HERRAMIENTAS */
+.contenedor_icono_opciones_herramientas {
+    position: absolute;
+    z-index: 10000;
+    max-width: 340px;
+    overflow: visible;
+    bottom: 50px;
+    padding: 9px 0;
+    transform-origin: right top;
+    transform: scale(1);
+    opacity: 1;
+    border-radius: 3px;
+    right: 4px;
+    display: none;
+}
+
+.contenedor_icono_opciones_herramientas div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: rebeccapurple;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 5px 0 rgba(11, 20, 26, .26), 0 2px 10px 0 rgba(11, 20, 26, .16);
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}
+
+.contenedor_icono_opciones_herramientas i:nth-child(1) {
+    margin-right: 0px;
+    color: #fff;
+}

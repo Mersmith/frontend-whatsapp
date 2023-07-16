@@ -9,9 +9,11 @@ ng generate component components/lista-chat-izquierda-componente
 
 ng generate component components/whatsapp-derecha-componente
 ng generate component components/cabecera-derecha-componente
-ng generate component components/caja-mensajes-derecha-componente
 ng generate component components/inicio-derecha-componente
 ng generate component components/buscar-derecha-componente
+ng generate component components/caja-mensajes-derecha-componente
+ng generate component components/mensaje-derecha-componente
+ng generate component components/chat-input-derecha-componente
 
 ng generate service services/contacto-seleccionado
 
