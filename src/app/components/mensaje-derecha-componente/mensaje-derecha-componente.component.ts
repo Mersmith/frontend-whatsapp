@@ -21,7 +21,7 @@ export class MensajeDerechaComponenteComponent implements OnInit {
   }
 
   ngOnInit(): void {
-      this.tipoMensaje = this.mensaje.type;
+    this.tipoMensaje = this.mensaje.type;
   }
 
 }

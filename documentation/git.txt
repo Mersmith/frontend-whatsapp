@@ -29,3 +29,10 @@ git commit -m "Avance de chat input"
 git push origin Chat_Input
 
 git pull origin master
+
+git checkout -b Respuest_Mensaje
+git branch
+git status
+git add .
+git commit -m "Avance de respuesta mensaje"
+git push origin Respuest_Mensaje
