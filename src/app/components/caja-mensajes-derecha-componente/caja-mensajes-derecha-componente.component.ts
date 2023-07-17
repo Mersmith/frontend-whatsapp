@@ -1,8 +1,7 @@
 import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { ContactoInteface } from '../../models/contacto-item.model';
 import { mensajes } from './data-mensajes';
-import { format } from 'date-fns';
-import { es } from 'date-fns/locale';
+
 @Component({
   selector: 'app-caja-mensajes-derecha-componente',
   templateUrl: './caja-mensajes-derecha-componente.component.html',
@@ -23,14 +22,28 @@ export class CajaMensajesDerechaComponenteComponent implements OnChanges {
       this.mensajes = [];
     }
 
+    this.mensajes.forEach((mensaje: any) => {
+      if (mensaje.mensaje_respuesta && mensaje.context) {
+        const mensajeRespondido = this.mensajes.find((m: any) => m.wamid === mensaje.context);
+        if (mensajeRespondido) {
+          mensaje.respondidoPor = mensajeRespondido.envio === 1 ? 'Tú' : this.contactoSeleccionado?.name;
+        }
+      }
+    });
+
   }
 
-  formatearHora(timeString: string): string {
-    const date = new Date(`2000-01-01T${timeString}`);
-    let hora = format(date, 'h:mm a', { locale: es }).toLowerCase();
-    hora = hora.replace(/pm/, 'p.m.');
-    hora = hora.replace(/am/, 'a.m.');
-    return hora;
+  scrollMensajeContexto(context: string | null): void {
+    if (context) {
+      const mensajeDiv = document.getElementById(context);
+      if (mensajeDiv) {
+
+        mensajeDiv.scrollIntoView({ behavior: 'smooth' });
+
+      }
+    }
   }
+
+
 
 }
