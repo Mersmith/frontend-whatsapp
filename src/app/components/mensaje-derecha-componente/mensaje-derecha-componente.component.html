@@ -1,114 +1,194 @@
-<!-- CONTEXT MENSAJE -->
-<!-- TIPO STICKER -->
-<ng-container *ngIf="mensaje.context">
-    <ng-container *ngIf="mensaje.context.type === 'sticker'">
-        <h1>hola 2</h1>
-        <img [src]="mensaje.context.content.id" [style]="{width:'100%'}">
+<div [id]="mensaje.wamid">
+    <!-- CONTEXT MENSAJE -->
+    <!-- TIPO STICKER -->
+    <ng-container *ngIf="mensaje.context">
+        <ng-container *ngIf="mensaje.context.type === 'sticker'">
+            <h1>hola 2</h1>
+            <img [src]="mensaje.context.content.id" [style]="{width:'100%'}">
+        </ng-container>
     </ng-container>
-</ng-container>
 
-<!-- MENSAJE -->
-<!-- TIPO DE MENSAJE -->
-<!-- TIPO TEXT -->
-<ng-container *ngIf="tipoMensaje === 'text'">
-    <p>{{mensaje.content }}</p>
-</ng-container>
+    <!-- RESPUESTA MENSAJE -->
+    <ng-container *ngIf="mensajeRespuesta">
+        <a href="javascript:void(0)" (click)="scrollMensajeContexto(mensaje.context)">
+            <div [ngClass]="{
+        'contenedor_mensaje_respuesta': true, 
+        'amigo_mensaje_contenedor_mensaje_respuesta': mensaje.envio === 0,
+        'mi_mensaje_contenedor_mensaje_respuesta': mensaje.envio === 1,
+        'mi_respuesta': mensaje.respondidoPor === 'Tú', 
+        'amigo_respuesta': mensaje.respondidoPor !== 'Tú'        
+        }" *ngIf="mensaje.respondidoPor">
+                <span>{{ mensaje.respondidoPor }}</span>
+                <div class="contenido_mensaje_respuesta">
+                    <!-- TIPO TEXT -->
+                    <ng-container *ngIf="mensaje.mensaje_respuesta_type === 'text'">
+                        <p>{{mensaje.mensaje_respuesta.body}}</p>
+                    </ng-container>
 
-<!-- TIPO IMAGE -->
-<ng-container *ngIf="tipoMensaje === 'image'">
-    <img [src]="mensaje.content" [style]="{width:'100%'}">
-</ng-container>
+                    <!-- TIPO IMAGE -->
+                    <ng-container *ngIf="mensaje.mensaje_respuesta_type === 'image'">
+                        <img [src]="mensaje.mensaje_respuesta.body" [style]="{width:'100%'}">
+                    </ng-container>
 
-<!-- TIPO VIDEO -->
-<ng-container *ngIf="tipoMensaje === 'video'">
-    <video preload="auto" width="100%" controls>
-        <source [src]="mensaje.content" />
-    </video>
-</ng-container>
+                    <!-- TIPO VIDEO -->
+                    <ng-container *ngIf="mensaje.mensaje_respuesta_type === 'video'">
+                        <video preload="auto" width="100%" controls>
+                            <source [src]="mensaje.mensaje_respuesta.body" />
+                        </video>
+                    </ng-container>
 
-<!-- TIPO STICKER -->
-<ng-container *ngIf="tipoMensaje === 'sticker'">
-    <img [src]="mensaje.content" [style]="{width:'100%'}">
-</ng-container>
+                    <!-- TIPO STICKER -->
+                    <ng-container *ngIf="mensaje.mensaje_respuesta_type === 'sticker'">
+                        <img [src]="mensaje.mensaje_respuesta.body" [style]="{width:'100%'}">
+                    </ng-container>
 
-<!-- TIPO AUDIO -->
-<ng-container *ngIf="tipoMensaje === 'audio'">
-    <audio controls>
-        <source [src]="mensaje.content">
-    </audio>
-</ng-container>
+                    <!-- TIPO AUDIO -->
+                    <ng-container *ngIf="mensaje.mensaje_respuesta_type === 'audio'">
+                        <audio controls>
+                            <source [src]="mensaje.mensaje_respuesta.body">
+                        </audio>
+                    </ng-container>
 
-<!-- TIPO DOCUMENT -->
-<ng-container *ngIf="tipoMensaje === 'document'">
-    <a [href]="mensaje.content" target="_blank">
-        <img src="" alt="">
-        <p>{{mensaje.content}}</p>
-        <span>{{mensaje.img}}</span>
-    </a>
-</ng-container>
+                    <!-- TIPO DOCUMENT -->
+                    <ng-container *ngIf="mensaje.mensaje_respuesta_type === 'document'">
+                        <a [href]="mensaje.mensaje_respuesta.body" target="_blank">
+                            <img src="" alt="">
+                            <p>{{mensaje.mensaje_respuesta.body}}</p>
+                            <span>{{mensaje.mensaje_respuesta.img}}</span>
+                        </a>
+                    </ng-container>
 
-<!-- TIPO INTERACTIVE -->
-<ng-container *ngIf="tipoMensaje === 'interactive'">
-    <div *ngIf="!mensaje.context">
-        <div>{{this.mensaje.content.header.text}}</div>
-        <div>{{this.mensaje.content.body.text}}</div>
-        <div *ngIf="this.mensaje.content.footer">{{this.mensaje.content.footer.text}}</div>
-        <div *ngFor="let sections of this.mensaje.content.action.sections">
-            <strong>{{sections.title}}</strong>
-            <ul>
-                <li *ngFor="let rows of sections.rows">
-                    {{rows.title}}
-                </li>
-            </ul>
-        </div>
-    </div>
-    <div *ngIf="mensaje.context">
-        {{this.mensaje.content.list_reply.title}}
-    </div>
-    <h2>{{tipoMensaje}}</h2>
-</ng-container>
-
-<!-- TIPO TEMPLATE -->
-<ng-container *ngIf="tipoMensaje === 'template'">
-    <div *ngIf="mensaje.content.id">
-        <div *ngIf="mensaje.tipo === 'image' ">
-            <img [src]="mensaje.content.id" [style]="{width:'100%'}">
-        </div>
-        <div *ngIf="mensaje.tipo === 'video' ">
-            <video preload="auto" width="100%" controls height="100%">
-                <source [src]="mensaje.content.id" type="video/mp4" />
-            </video>
-        </div>
-        <div *ngIf="mensaje.tipo === 'document' ">
-
-            <a [href]="mensaje.content.id" target="_blank">
-                <div class="col-lg-3" [class]="mensaje.content.id.split('.')[1]">
+                    <!-- TIPO INTERACTIVE -->
+                    <ng-container *ngIf="mensaje.mensaje_respuesta_type === 'interactive'">
+                        <div *ngIf="!mensaje.mensaje_respuesta.list_reply">
+                            <div>{{mensaje.mensaje_respuesta.header.text}}</div>
+                            <div>{{mensaje.mensaje_respuesta.body.text}}</div>
+                            <div *ngIf="mensaje.mensaje_respuesta.footer">{{mensaje.mensaje_respuesta.footer.text}}
+                            </div>
+                            <div *ngFor="let sections of this.mensaje.mensaje_respuesta.action.sections">
+                                <strong>{{sections.title}}</strong>
+                                <ul>
+                                    <li *ngFor="let rows of sections.rows">
+                                        {{rows.title}}
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div *ngIf="mensaje.mensaje_respuesta.list_reply">
+                            {{mensaje.mensaje_respuesta.list_reply.title}}
+                        </div>
+                        <h2>{{tipoMensaje}}</h2>
+                    </ng-container>
                 </div>
+            </div>
+        </a>
+    </ng-container>
+
+    <!-- MENSAJE -->
+    <!-- TIPO DE MENSAJE -->
+    <!-- TIPO TEXT -->
+    <ng-container>
+        <ng-container *ngIf="tipoMensaje === 'text'">
+            <p>{{mensaje.content }}</p>
+        </ng-container>
+
+        <!-- TIPO IMAGE -->
+        <ng-container *ngIf="tipoMensaje === 'image'">
+            <img [src]="mensaje.content" [style]="{width:'100%'}">
+        </ng-container>
+
+        <!-- TIPO VIDEO -->
+        <ng-container *ngIf="tipoMensaje === 'video'">
+            <video preload="auto" width="100%" controls>
+                <source [src]="mensaje.content" />
+            </video>
+        </ng-container>
+
+        <!-- TIPO STICKER -->
+        <ng-container *ngIf="tipoMensaje === 'sticker'">
+            <img [src]="mensaje.content" [style]="{width:'100%'}">
+        </ng-container>
+
+        <!-- TIPO AUDIO -->
+        <ng-container *ngIf="tipoMensaje === 'audio'">
+            <audio controls>
+                <source [src]="mensaje.content">
+            </audio>
+        </ng-container>
+
+        <!-- TIPO DOCUMENT -->
+        <ng-container *ngIf="tipoMensaje === 'document'">
+            <a [href]="mensaje.content" target="_blank">
+                <img src="" alt="">
+                <p>{{mensaje.content}}</p>
+                <span>{{mensaje.img}}</span>
             </a>
+        </ng-container>
 
-        </div>
-    </div>
-    <div *ngIf="!mensaje.content.id">
-        <p><strong>{{mensaje.content.header}}</strong></p>
-    </div>
-    <div>
-        {{mensaje.caption}}
-    </div>
-</ng-container>
+        <!-- TIPO INTERACTIVE -->
+        <ng-container *ngIf="tipoMensaje === 'interactive'">
+            <div *ngIf="!mensaje.context">
+                <div>{{this.mensaje.content.header.text}}</div>
+                <div>{{this.mensaje.content.body.text}}</div>
+                <div *ngIf="this.mensaje.content.footer">{{this.mensaje.content.footer.text}}</div>
+                <div *ngFor="let sections of this.mensaje.content.action.sections">
+                    <strong>{{sections.title}}</strong>
+                    <ul>
+                        <li *ngFor="let rows of sections.rows">
+                            {{rows.title}}
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div *ngIf="mensaje.context">
+                {{this.mensaje.content.list_reply.title}}
+            </div>
+            <h2>{{tipoMensaje}}</h2>
+        </ng-container>
 
-<!-- CAPTION -->
-<ng-container
-    *ngIf="(mensaje.type === 'image' || mensaje.type === 'video' || mensaje.type === 'document') && mensaje.caption">
-    <h5>{{mensaje.caption}}</h5>
-</ng-container>
+        <!-- TIPO TEMPLATE -->
+        <ng-container *ngIf="tipoMensaje === 'template'">
+            <div *ngIf="mensaje.content.id">
+                <div *ngIf="mensaje.tipo === 'image' ">
+                    <img [src]="mensaje.content.id" [style]="{width:'100%'}">
+                </div>
+                <div *ngIf="mensaje.tipo === 'video' ">
+                    <video preload="auto" width="100%" controls height="100%">
+                        <source [src]="mensaje.content.id" type="video/mp4" />
+                    </video>
+                </div>
+                <div *ngIf="mensaje.tipo === 'document' ">
 
-<!-- HORA Y ESTADO MENSAJE -->
-<ng-container>
-    <span>{{ formatearHora(mensaje.hora) }}</span>
-    <i *ngIf="mensaje.envio == 1" [ngClass]="{ 
+                    <a [href]="mensaje.content.id" target="_blank">
+                        <div class="col-lg-3" [class]="mensaje.content.id.split('.')[1]">
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+            <div *ngIf="!mensaje.content.id">
+                <p><strong>{{mensaje.content.header}}</strong></p>
+            </div>
+            <div>
+                {{mensaje.caption}}
+            </div>
+        </ng-container>
+
+        <!-- CAPTION -->
+        <ng-container
+            *ngIf="(mensaje.type === 'image' || mensaje.type === 'video' || mensaje.type === 'document') && mensaje.caption">
+            <h5>{{mensaje.caption}}</h5>
+        </ng-container>
+
+        <!-- HORA Y ESTADO MENSAJE -->
+        <ng-container>
+            <span>{{ formatearHora(mensaje.hora) }}</span>
+            <i *ngIf="mensaje.envio == 1" [ngClass]="{ 
                 'enviado': mensaje.sent === 2,
                 'recibido': mensaje.sent === 1,
                 'leido': mensaje.sent === 3,
                 'fallo': mensaje.sent === 0,
             }">x</i>
-</ng-container>
+        </ng-container>
+    </ng-container>
+</div>

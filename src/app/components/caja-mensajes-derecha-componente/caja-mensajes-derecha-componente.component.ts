@@ -16,12 +16,21 @@ export class CajaMensajesDerechaComponenteComponent implements OnChanges {
   ngOnChanges(changes: SimpleChanges): void {
 
     if (this.contactoSeleccionado?.number) {
+
       const numeroContacto = this.contactoSeleccionado.number;
       this.mensajes = mensajes[numeroContacto];
+
+      if (this.mensajes) {
+        this.verificarPropietarioMensajeRespuesta();
+      }
+
     } else {
       this.mensajes = [];
     }
 
+  }
+
+  private verificarPropietarioMensajeRespuesta(): void {
     this.mensajes.forEach((mensaje: any) => {
       if (mensaje.mensaje_respuesta && mensaje.context) {
         const mensajeRespondido = this.mensajes.find((m: any) => m.wamid === mensaje.context);
@@ -30,20 +39,6 @@ export class CajaMensajesDerechaComponenteComponent implements OnChanges {
         }
       }
     });
-
   }
-
-  scrollMensajeContexto(context: string | null): void {
-    if (context) {
-      const mensajeDiv = document.getElementById(context);
-      if (mensajeDiv) {
-
-        mensajeDiv.scrollIntoView({ behavior: 'smooth' });
-
-      }
-    }
-  }
-
-
 
 }
