@@ -15,23 +15,12 @@
         'whatsapp_mensaje': true,
         'amigo_mensaje': mensaje.envio === 0,
         'mi_mensaje': mensaje.envio === 1,
-        'mensaje_respondido': mensaje.respondidoPor}"  >
+        'mensaje_respondido': mensaje.respondidoPor}" [id]="mensaje.wamid">
 
-            <div class="contenedor_mensaje" [id]="mensaje.wamid">
-                <!-- MENSAJE RESPUESTA -->
-                <div [ngClass]="{
-                    'contenedor_mensaje_respuesta': true, 
-                    'mi_respuesta': mensaje.respondidoPor === 'Tú', 
-                    'amigo_respuesta': mensaje.respondidoPor !== 'Tú',
-                    'opaco': mensaje.opaco    
-                    }" *ngIf="mensaje.respondidoPor">
-                    <span>{{ mensaje.respondidoPor }}</span>
-                    <div class="contenido_mensaje_respuesta">
-                        <a href="javascript:void(0)" (click)="scrollMensajeContexto(mensaje.context)">Ir a mensaje</a>
-                    </div>
-                </div>
+            <div class="contenedor_mensaje">
                 <!-- MENSAJE SOLO -->
-                <app-mensaje-derecha-componente [mensaje]="mensaje"></app-mensaje-derecha-componente>
+                <app-mensaje-derecha-componente [mensaje]="mensaje"
+                    [mensajeRespuesta]="mensaje.respondidoPor ? true : false"></app-mensaje-derecha-componente>
             </div>
 
         </div>

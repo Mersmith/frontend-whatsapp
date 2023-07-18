@@ -59,20 +59,14 @@
 
 .mi_mensaje .contenedor_mensaje::before {
   right: -12px;
-  background: linear-gradient(135deg,
-      #dcf8c6 0%,
-      #dcf8c6 50%,
-      transparent 50%,
-      transparent);
+  clip-path: polygon(0 0, 100% 0, 0 100%);
+  background: var(--background-color-mi-mensaje);
 }
 
 .amigo_mensaje .contenedor_mensaje::before {
   left: -12px;
-  background: linear-gradient(225deg,
-      #fff 0%,
-      #fff 50%,
-      transparent 50%,
-      transparent);
+  clip-path: polygon(100% 0, 0 0, 100% 100%);
+  background: var(--background-color-amigo-mensaje);
 }
 
 .amigo_mensaje+.amigo_mensaje .contenedor_mensaje::before,
@@ -81,53 +75,11 @@
 }
 
 .mi_mensaje .contenedor_mensaje {
-  background: #dcf8c8;
+  background: var(--background-color-mi-mensaje);
   text-align: right;
 }
 
 .amigo_mensaje .contenedor_mensaje {
-  background: #fff;
+  background: var(--background-color-amigo-mensaje);
   text-align: left;
-}
-
-/* CONTENEDOR MENSAJE RESPUESTA */
-.contenedor_mensaje_respuesta {
-  display: flex;
-  flex-grow: 1;
-  flex-direction: column;
-  min-height: 42px;
-  max-height: 82px;
-  overflow: hidden;
-  border-radius: 7.5px;
-  cursor: pointer;
-  padding: 4px 12px 8px 8px;
-  margin-bottom: 12px;
-}
-
-.mi_mensaje .contenedor_mensaje_respuesta {
-  background: #d1f4cc;
-}
-
-.amigo_mensaje .contenedor_mensaje_respuesta {
-  background: #f5f6f6;
-}
-
-.mi_respuesta {
-  border-left: 4px solid #53bdeb;
-}
-
-.amigo_respuesta {
-  border-left: 4px solid #06cf9c;
-}
-
-.contenedor_mensaje_respuesta span {
-  font-size: 12px;
-}
-
-.mi_respuesta span {
-  color: #53bdeb;
-}
-
-.amigo_respuesta span {
-  color: #06cf9c;
 }

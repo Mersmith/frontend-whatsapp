@@ -24,6 +24,9 @@
     --color-quinario-hover: #040714;
 
     --color-sombra: 0px 8px 20px rgba(7, 36, 95, 0.15);
+
+    --background-color-mi-mensaje: #dcf8c8;
+    --background-color-amigo-mensaje: #fff;
 }
 
 ul {

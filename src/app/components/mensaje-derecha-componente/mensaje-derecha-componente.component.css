@@ -27,3 +27,45 @@ i {
 .fallo {
     color: #fb0000;
 }
+
+/* CONTENEDOR MENSAJE RESPUESTA */
+.contenedor_mensaje_respuesta {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    min-height: 42px;
+    max-height: 82px;
+    overflow: hidden;
+    border-radius: 7.5px;
+    cursor: pointer;
+    padding: 4px 12px 8px 8px;
+    margin-bottom: 12px;
+}
+
+.mi_mensaje_contenedor_mensaje_respuesta {
+    background: #d1f4cc;
+}
+
+.amigo_mensaje_contenedor_mensaje_respuesta {
+    background: #f5f6f6;
+}
+
+.mi_respuesta {
+    border-left: 4px solid #53bdeb;
+}
+
+.amigo_respuesta {
+    border-left: 4px solid #06cf9c;
+}
+
+.contenedor_mensaje_respuesta span {
+    font-size: 12px;
+}
+
+.mi_respuesta span {
+    color: #53bdeb;
+}
+
+.amigo_respuesta span {
+    color: #06cf9c;
+}
