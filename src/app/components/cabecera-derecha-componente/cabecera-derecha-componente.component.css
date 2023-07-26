@@ -1,3 +1,13 @@
+.contenedor_whatsapp_cabecera_derecha {
+    position: relative;
+    width: 100%;
+    height: 60px;
+    background: #ededed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 15px;
+}
 
 /* CABECERA */
 .whatsapp_cabecera_derecha {

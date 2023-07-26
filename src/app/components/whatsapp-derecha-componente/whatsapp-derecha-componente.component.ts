@@ -7,17 +7,13 @@ import { ContactoSeleccionadoService } from 'src/app/services/contacto-seleccion
   templateUrl: './whatsapp-derecha-componente.component.html',
   styleUrls: ['./whatsapp-derecha-componente.component.css']
 })
-export class WhatsappDerechaComponenteComponent implements OnInit{
-  
+export class WhatsappDerechaComponenteComponent implements OnInit {
+
   contactoSeleccionado: ContactoInteface | null = null;
 
   constructor(
     private contactoSeleccionadoService: ContactoSeleccionadoService
   ) { }
-
-  seleccionarContacto(contacto: ContactoInteface): void {
-    this.contactoSeleccionadoService.contactoSeleccionado = contacto;
-  }
 
   ngOnInit(): void {
 

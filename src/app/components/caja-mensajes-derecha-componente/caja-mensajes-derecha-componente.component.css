@@ -1,3 +1,13 @@
+.contenedor_whatsapp_caja_mensajes_derecha {
+  position: relative;
+  width: 100%;
+  height: calc(100% - 120px);
+  padding: 20px 50px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
 .whatsapp_mensaje_fechas {
   width: fit-content;
   background-color: white;

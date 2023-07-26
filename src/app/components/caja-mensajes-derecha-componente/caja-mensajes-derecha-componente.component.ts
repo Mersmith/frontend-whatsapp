@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges, ElementRef, ViewChild, AfterViewInit, AfterViewChecked } from '@angular/core';
 import { ContactoInteface } from '../../models/contacto-item.model';
 import { mensajes } from './data-mensajes';
 
@@ -7,11 +7,14 @@ import { mensajes } from './data-mensajes';
   templateUrl: './caja-mensajes-derecha-componente.component.html',
   styleUrls: ['./caja-mensajes-derecha-componente.component.css']
 })
-export class CajaMensajesDerechaComponenteComponent implements OnChanges {
+export class CajaMensajesDerechaComponenteComponent implements OnChanges, AfterViewInit, AfterViewChecked {
 
   @Input() contactoSeleccionado: ContactoInteface | null = null;
 
   mensajes: any = [];
+
+  @ViewChild('mensaje_contenedor')
+  mensaje_contenedor!: ElementRef;
 
   ngOnChanges(changes: SimpleChanges): void {
 
@@ -30,6 +33,16 @@ export class CajaMensajesDerechaComponenteComponent implements OnChanges {
 
   }
 
+  ngAfterViewInit(): void {
+    this.scrollToBottom();
+    console.log(1);
+  }
+
+  ngAfterViewChecked(): void {
+    this.scrollToBottom();
+    console.log(2);
+  }
+
   private verificarPropietarioMensajeRespuesta(): void {
     this.mensajes.forEach((mensaje: any) => {
       if (mensaje.mensaje_respuesta && mensaje.context) {
@@ -39,6 +52,19 @@ export class CajaMensajesDerechaComponenteComponent implements OnChanges {
         }
       }
     });
+  }
+
+  private scrollToBottom(): void {
+    try {
+      this.mensaje_contenedor.nativeElement.scrollTop = 0;
+      //this.mensaje_contenedor.nativeElement.scrollTop = this.mensaje_contenedor.nativeElement.scrollHeight;
+
+      const scrollHeight = this.mensaje_contenedor.nativeElement.scrollHeight;
+      const visibleHeight = this.mensaje_contenedor.nativeElement.clientHeight;
+      const scrollPosition = scrollHeight - visibleHeight;
+
+      this.mensaje_contenedor.nativeElement.scrollTop = scrollPosition;
+    } catch (err) { }
   }
 
 }
