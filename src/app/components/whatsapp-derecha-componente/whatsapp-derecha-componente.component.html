@@ -1,12 +1,12 @@
 <ng-container *ngIf="contactoSeleccionado; else noContactoSeleccionado">
     <!-- CABECERA DERECHA -->
-    <app-cabecera-derecha-componente class="contenedor_whatsapp_cabecera_derecha"></app-cabecera-derecha-componente>
+    <app-cabecera-derecha-componente></app-cabecera-derecha-componente>
 
-    <app-caja-mensajes-derecha-componente [contactoSeleccionado]="contactoSeleccionado" class="contenedor_whatsapp_caja_mensajes_derecha scroll_bar_whatsapp"></app-caja-mensajes-derecha-componente>
+    <app-caja-mensajes-derecha-componente [contactoSeleccionado]="contactoSeleccionado"></app-caja-mensajes-derecha-componente>
 
-    <app-chat-input-derecha-componente class="contenedor_whatsapp_chat_input_derecha"></app-chat-input-derecha-componente>
+    <app-chat-input-derecha-componente></app-chat-input-derecha-componente>
 </ng-container>
 
 <ng-template #noContactoSeleccionado>
-    <app-inicio-derecha-componente  class="contenedor_whatsapp_inicio_derecha"></app-inicio-derecha-componente>
+    <app-inicio-derecha-componente></app-inicio-derecha-componente>
 </ng-template>

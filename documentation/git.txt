@@ -43,3 +43,10 @@ git status
 git add .
 git commit -m "Avance scroll caja mensaje"
 git push origin Scroll_Caja_Mensaje
+
+git checkout -b Scroll_Caja_Mensaje_2
+git branch
+git status
+git add .
+git commit -m "Avance scroll caja mensaje"
+git push origin Scroll_Caja_Mensaje_2

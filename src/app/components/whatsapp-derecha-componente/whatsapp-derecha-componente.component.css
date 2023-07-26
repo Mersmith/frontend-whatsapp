@@ -1,27 +1,3 @@
-.contenedor_whatsapp_cabecera_derecha {
-    position: relative;
-    width: 100%;
-    height: 60px;
-    background: #ededed;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 15px;
-}
-
-.contenedor_whatsapp_inicio_derecha {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    padding-top: 28px;
-    padding-bottom: 28px;
-    background-color: #f0f2f5;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
 .contenedor_whatsapp_caja_mensajes_derecha {
     position: relative;
     width: 100%;
@@ -30,15 +6,4 @@
     overflow-y: auto;
     display: flex;
     flex-direction: column;
-}
-
-.contenedor_whatsapp_chat_input_derecha {
-    position: relative;
-    width: 100%;
-    height: 50px;
-    background: #F0F2F5;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 20000;
-}
+  }
