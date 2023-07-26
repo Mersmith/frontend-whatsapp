@@ -6,10 +6,16 @@
         <h4>Qazi <br><span>En linea</span></h4>
     </div>
     <ul class="cabecera_iconos">
-        <li class="cabecera_iconos_item" id="abrir_contenedor_whatsapp_derecha_opciones"><i>x</i></li>
-        <li class="cabecera_iconos_item" id="abrir_contenedor_icono_opciones_chat"><i>x</i>
+        <li class="cabecera_iconos_item" (click)="toggleContenedorWhatsappBuscar()"><i>x</i></li>
+        <li
+            #contenedorOpcionesInfo
+            class="cabecera_iconos_item"
+            (click)="toggleEstadoOpcionesInfo()">
+            <i>x</i>
             <!-- OPCIÓN 3 -->
-            <div class="contenedor_icono_opciones_chat">
+            <div
+                class="contenedor_icono_opciones_chat"
+                [style.display]="estadoOpcionesInfo ? 'block' : 'none'">
                 <ul>
                     <li>Info. del contacto</li>
                     <li>Seleccionar mensajes</li>

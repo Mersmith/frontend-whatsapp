@@ -13,10 +13,10 @@
 
             <!-- MENSAJE -->
             <div [ngClass]="{
-        'whatsapp_mensaje': true,
-        'amigo_mensaje': mensaje.envio === 0,
-        'mi_mensaje': mensaje.envio === 1,
-        'mensaje_respondido': mensaje.respondidoPor}" [id]="mensaje.wamid">
+                'whatsapp_mensaje': true,
+                'amigo_mensaje': mensaje.envio === 0,
+                'mi_mensaje': mensaje.envio === 1,
+                'mensaje_respondido': mensaje.respondidoPor}" [id]="mensaje.wamid">
 
                 <div class="contenedor_mensaje">
                     <!-- MENSAJE SOLO -->
@@ -31,6 +31,6 @@
     </ng-container>
 
     <ng-template #noMensajes>
-        <p>No hay mensajes disponibles.</p>
+        
     </ng-template>
 </div>

@@ -1,13 +1,13 @@
-import { Component, Input, OnChanges, SimpleChanges, ElementRef, ViewChild, AfterViewInit, AfterViewChecked } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges, ElementRef, ViewChild, AfterViewInit, OnDestroy } from '@angular/core';
 import { ContactoInteface } from '../../models/contacto-item.model';
-import { mensajes } from './data-mensajes';
+import { ChatService } from 'src/app/services/chat-service/chat.service';
 
 @Component({
   selector: 'app-caja-mensajes-derecha-componente',
   templateUrl: './caja-mensajes-derecha-componente.component.html',
   styleUrls: ['./caja-mensajes-derecha-componente.component.css']
 })
-export class CajaMensajesDerechaComponenteComponent implements OnChanges, AfterViewInit, AfterViewChecked {
+export class CajaMensajesDerechaComponenteComponent implements OnChanges, AfterViewInit, OnDestroy {
 
   @Input() contactoSeleccionado: ContactoInteface | null = null;
 
@@ -16,31 +16,40 @@ export class CajaMensajesDerechaComponenteComponent implements OnChanges, AfterV
   @ViewChild('mensaje_contenedor')
   mensaje_contenedor!: ElementRef;
 
-  ngOnChanges(changes: SimpleChanges): void {
+  constructor(
+    private chatService: ChatService,
+  ) { }
+
+  ngOnChanges(changes: SimpleChanges) {
+    this.chatService.dejarSalaPorContacto(changes['contactoSeleccionado'].previousValue);
 
     if (this.contactoSeleccionado?.number) {
 
       const numeroContacto = this.contactoSeleccionado.number;
-      this.mensajes = mensajes[numeroContacto];
+      this.mensajes = this.chatService.getMensajesPorContacto(numeroContacto);
 
       if (this.mensajes) {
         this.verificarPropietarioMensajeRespuesta();
+        this.scrollToBottom();
       }
 
-    } else {
-      this.mensajes = [];
+      this.chatService.unirseSalaPorContacto(this.contactoSeleccionado);
+
     }
 
   }
 
-  ngAfterViewInit(): void {
-    this.scrollToBottom();
-    console.log(1);
+  ngAfterViewInit() {
+    if (this.mensaje_contenedor && this.mensaje_contenedor.nativeElement) {
+      this.scrollToBottom();
+    }
   }
 
-  ngAfterViewChecked(): void {
-    this.scrollToBottom();
-    console.log(2);
+
+  ngOnDestroy() {
+    if (this.contactoSeleccionado) {
+      this.chatService.dejarSalaPorContacto(this.contactoSeleccionado);
+    }
   }
 
   private verificarPropietarioMensajeRespuesta(): void {
@@ -54,17 +63,12 @@ export class CajaMensajesDerechaComponenteComponent implements OnChanges, AfterV
     });
   }
 
-  private scrollToBottom(): void {
+  scrollToBottom(): void {
     try {
-      this.mensaje_contenedor.nativeElement.scrollTop = 0;
-      //this.mensaje_contenedor.nativeElement.scrollTop = this.mensaje_contenedor.nativeElement.scrollHeight;
-
-      const scrollHeight = this.mensaje_contenedor.nativeElement.scrollHeight;
-      const visibleHeight = this.mensaje_contenedor.nativeElement.clientHeight;
-      const scrollPosition = scrollHeight - visibleHeight;
-
-      this.mensaje_contenedor.nativeElement.scrollTop = scrollPosition;
-    } catch (err) { }
+      setTimeout(() => {
+        this.mensaje_contenedor.nativeElement.scrollTop = this.mensaje_contenedor.nativeElement.scrollHeight;
+      }, 1);
+    } catch { }
   }
 
 }
