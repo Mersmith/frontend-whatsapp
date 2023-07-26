@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, HostListener, ViewChild, ElementRef } from '@angular/core';
+import { ToogleSidebarService } from 'src/app/services/toogle-sidebar.service';
 
 @Component({
   selector: 'app-cabecera-izquierda-componente',
@@ -6,5 +7,44 @@ import { Component } from '@angular/core';
   styleUrls: ['./cabecera-izquierda-componente.component.css']
 })
 export class CabeceraIzquierdaComponenteComponent {
+
+  estadoOpcionesPerfil: Boolean = false;
+
+  @ViewChild('contenedorOpcionesPerfil', { static: true })
+  contenedorOpcionesPerfilRef!: ElementRef;
+
+  constructor(
+    private toogleSidebarService: ToogleSidebarService
+  ) { }
+
+  toggleContenedorWhatsappPerfil() {
+    if (this.toogleSidebarService.obtenerEstadoContenedor(2)) {
+      this.toogleSidebarService.ocultarContenedor(2);
+    } else {
+      this.toogleSidebarService.mostrarContenedor(2);
+    }
+  }
+
+  toggleContenedorWhatsappNuevoChat() {
+    if (this.toogleSidebarService.obtenerEstadoContenedor(3)) {
+      this.toogleSidebarService.ocultarContenedor(3);
+    } else {
+      this.toogleSidebarService.mostrarContenedor(3);
+    }
+  }
+
+  toggleEstadoOpcionesPerfil() {
+    this.estadoOpcionesPerfil = !this.estadoOpcionesPerfil;
+  }
+
+  @HostListener('document:click', ['$event'])
+  onClickOutside(event: Event) {
+    const target = event.target as HTMLElement;
+    const opcionesElement = this.contenedorOpcionesPerfilRef.nativeElement;
+
+    if (opcionesElement && !opcionesElement.contains(target)) {
+      this.estadoOpcionesPerfil = false;
+    }
+  }
 
 }

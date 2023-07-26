@@ -3,6 +3,8 @@ ng new frontend-whatsapp
 ng generate component pages/inicio-pagina
 
 ng generate component components/whatsapp-izquierda-componente
+ng generate component components/perfil-izquierda-componente
+ng generate component components/nuevo-chat-izquierda-componente
 ng generate component components/cabecera-izquierda-componente
 ng generate component components/buscar-izquierda-componente
 ng generate component components/lista-chat-izquierda-componente
@@ -16,6 +18,9 @@ ng generate component components/mensaje-derecha-componente
 ng generate component components/chat-input-derecha-componente
 
 ng generate service services/contacto-seleccionado
+ng generate service services/ToogleSidebar
+ng generate service services/ToogleOpciones
+ng g s services/chat-service/chat
 
 npm install date-fns
 npm install date-fns/locale

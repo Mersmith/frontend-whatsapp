@@ -15,6 +15,8 @@ import { InicioDerechaComponenteComponent } from './components/inicio-derecha-co
 import { CajaMensajesDerechaComponenteComponent } from './components/caja-mensajes-derecha-componente/caja-mensajes-derecha-componente.component';
 import { MensajeDerechaComponenteComponent } from './components/mensaje-derecha-componente/mensaje-derecha-componente.component';
 import { ChatInputDerechaComponenteComponent } from './components/chat-input-derecha-componente/chat-input-derecha-componente.component';
+import { PerfilIzquierdaComponenteComponent } from './components/perfil-izquierda-componente/perfil-izquierda-componente.component';
+import { NuevoChatIzquierdaComponenteComponent } from './components/nuevo-chat-izquierda-componente/nuevo-chat-izquierda-componente.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +31,9 @@ import { ChatInputDerechaComponenteComponent } from './components/chat-input-der
     InicioDerechaComponenteComponent,
     CajaMensajesDerechaComponenteComponent,
     MensajeDerechaComponenteComponent,
-    ChatInputDerechaComponenteComponent
+    ChatInputDerechaComponenteComponent,
+    PerfilIzquierdaComponenteComponent,
+    NuevoChatIzquierdaComponenteComponent
   ],
   imports: [
     BrowserModule,

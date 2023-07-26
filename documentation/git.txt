@@ -50,3 +50,10 @@ git status
 git add .
 git commit -m "Avance scroll caja mensaje"
 git push origin Scroll_Caja_Mensaje_2
+
+git checkout -b Sidebar_Opciones
+git branch
+git status
+git add .
+git commit -m "Sidebar y Opciones"
+git push origin Sidebar_Opciones

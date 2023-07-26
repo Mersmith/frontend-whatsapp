@@ -1,5 +1,45 @@
+<!-- CONTENEDOR WHATSAPP PRINCIPAL -->
 <div class="contenedor_whatsapp_principal">
-    <app-whatsapp-izquierda-componente [contactoItems]="contactoItems" class="contenedor_whatsapp_izquierda">
-    </app-whatsapp-izquierda-componente>
-    <app-whatsapp-derecha-componente class="contenedor_whatsapp_derecha"></app-whatsapp-derecha-componente>
+
+    <!-- CONTENEDOR WHATSAPP NUEVO CHAT -->
+    <div
+        #contenedorWhatsappNuevoChat
+        class="contenedor_whatsapp_nuevo_chat"
+        [style.left]="obtenerEstadoContenedorWhatsappNuevoChat() ? '0' : '-100%'">
+        <app-nuevo-chat-izquierda-componente>
+        </app-nuevo-chat-izquierda-componente>
+    </div>
+
+    <!-- CONTENEDOR WHATSAPP PERFIL -->
+    <div
+        #contenedorWhatsappPerfil
+        class="contenedor_whatsapp_perfil"
+        [style.left]="obtenerEstadoContenedorWhatsappPerfil() ? '0' : '-100%'">
+        <app-perfil-izquierda-componente>
+        </app-perfil-izquierda-componente>
+    </div>
+
+    <!-- CONTENEDOR WHATSAPP IZQUIERDA -->
+    <div
+        #contenedorWhatsappIzquierda
+        class="contenedor_whatsapp_izquierda">
+        <app-whatsapp-izquierda-componente [contactoItems]="contactoItems">
+        </app-whatsapp-izquierda-componente>
+    </div>
+
+    <!-- CONTENEDOR WHATSAPP DERECHA -->
+    <div class="contenedor_whatsapp_derecha">
+        <app-whatsapp-derecha-componente>
+        </app-whatsapp-derecha-componente>
+    </div>
+
+    <!-- CONTENEDOR WHATSAPP BUSCAR -->
+    <div 
+        class="contenedor_whatsapp_buscar"
+        [style.display]="obtenerEstadoContenedorWhatsappBuscar() ? 'block' : 'none'"
+        [style.max-width]="obtenerEstadoContenedorWhatsappBuscar() ? '100%' : '0'">
+        <app-buscar-derecha-componente>
+        </app-buscar-derecha-componente>
+    </div>
+
 </div>

@@ -2,10 +2,16 @@
     <input type="text" placeholder="Busca un chat o inicia uno nuevo.">
     <i>x</i>
 </div>
-<div class="contenedor_buscar_chat_filtro">
+<div
+    #contenedorOpcionesChats
+    class="contenedor_buscar_chat_filtro"
+    (click)="toggleEstadoOpcionesChats()"
+   >
     <i>x</i>
     <!-- OPCIÓN 3 -->
-    <div class="contenedor_icono_opciones_filtro">
+    <div
+        class="contenedor_icono_opciones_filtro"
+        [style.display]="estadoOpcionesChats ? 'block' : 'none'">
         <ul>
             <li class="contenedor_icono_opciones_filtro_subtitulo">Chats</li>
             <li class="contenedor_icono_opciones_filtro_subtitulo_no"> <i>x</i>Chat no leídos</li>

@@ -69,3 +69,19 @@ i {
 .amigo_respuesta span {
     color: #06cf9c;
 }
+
+/* ESTILOS MULTIMEDIA */
+.imagen_mensaje{
+    /*width: 100px;*/
+    height: 100px;
+}
+
+.video_mensaje{
+    /*width: 100px;*/
+    height: 100px;
+}
+
+.audio_mensaje{
+    /*width: 100px;*/
+    height: 100px;
+}

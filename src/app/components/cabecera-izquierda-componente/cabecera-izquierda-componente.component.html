@@ -1,13 +1,26 @@
 <div class="cabecera_perfil_propio">
-    <img src="assets/imagenes/perfiles/user.jpg" alt="" class="perfil_imagen">
+    <img
+        src="assets/imagenes/perfiles/user.jpg"
+        alt=""
+        class="perfil_imagen"
+        (click)="toggleContenedorWhatsappPerfil()">
 </div>
 <ul class="cabecera_iconos">
     <li class="cabecera_iconos_item"><i>x</i></li>
-    <li class="cabecera_iconos_item" id="abrir_contenedor_whatsapp_izquierda_opciones"><i>x</i></li>
-    <li class="cabecera_iconos_item" id="abrir_contenedor_icono_opciones_perfil">
+    <li
+        class="cabecera_iconos_item"
+        (click)="toggleContenedorWhatsappNuevoChat()">
+        <i>x</i>
+    </li>
+    <li
+        #contenedorOpcionesPerfil
+        class="cabecera_iconos_item"
+        (click)="toggleEstadoOpcionesPerfil()">
         <i>x</i>
         <!-- OPCIÓN 3 -->
-        <div class="contenedor_icono_opciones_perfil">
+        <div
+            class="contenedor_icono_opciones_perfil"
+            [style.display]="estadoOpcionesPerfil ? 'block' : 'none'">
             <ul>
                 <li>Nuevo grupo</li>
                 <li>Perfil</li>
