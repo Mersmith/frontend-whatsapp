@@ -1,70 +1,28 @@
-
-.cabecera_perfil_propio {
-    position: relative;
-    width: 40px;
-    height: 40px;
-    overflow: hidden;
-    border-radius: 50%;
-    cursor: pointer;
+.contenedor_whatsapp_cabecera_izquierda {
+  position: relative;
+  width: 100%;
+  height: var(--cabecera-top-alto-computadora);
+  background: var(--background-color-principal);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 15px;
 }
 
-.perfil_imagen {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
+/* CABECERA */
 .cabecera_iconos {
-    display: flex;
+  display: flex;
+  gap: 15px;
 }
 
 .cabecera_iconos .cabecera_iconos_item {
-    display: flex;
-    cursor: pointer;
-    color: #51585c;
-    font-size: 1.5em;
-    margin-left: 22px;
-    position: relative;
+  position: relative;
 }
 
 /* CONTENEDOR ICONO OPCIONES PERFIL */
 .contenedor_icono_opciones_perfil {
-    position: absolute;
-    z-index: 10000;
-    max-width: 340px;
-    overflow: visible;
-    top: 36px;
-    padding: 9px 0;
-    transform-origin: right top;
-    transform: scale(1);
-    opacity: 1;
-    background-color: #fff;
-    border-radius: 3px;
-    box-shadow: 0 2px 5px 0 rgba(11, 20, 26, .26), 0 2px 10px 0 rgba(11, 20, 26, .16);
-    right: 4px;
-    display: none;
-  }
-  
-  .contenedor_icono_opciones_perfil li {
-    padding-right: 58px;
-    padding-left: 24px;
-    height: 40px;
-    box-sizing: border-box;
-    display: flex;
-    align-items: center;
-    font-size: 14.5px;
-    line-height: 14.5px;
-    color: #3b4a54;
-    cursor: pointer;
-    white-space: nowrap;
-  }
-  
-  .contenedor_icono_opciones_perfil li:hover {
-    background-color: #F0F2F5;
-  }
-  
-  /* FIN CONTENEDOR ICONO OPCIONES PERFIL */
-  
+  max-width: 340px;
+  top: 24px;
+  transform-origin: right top;
+  right: 4px;
+}

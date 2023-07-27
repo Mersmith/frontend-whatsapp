@@ -1,30 +1,45 @@
 <div class="contenedor_whatsapp_chat_input_derecha">
+  <!-- OPCIONES EMOTICONES -->
+  <div
+  class="contenedor_icono_opciones_emoticones"
+  [ngStyle]="{ 
+    'transform': estadoOpcionesEmoticones ? 'translateY(-' + getInputBottomAltoComputadora() + ')' : 'translateY(100%)',
+    'display': estadoOpcionesEmoticones ? 'block' : 'none'}">
+    <div><i>x</i></div>
+    <div><i>x</i></div>
+    <div><i>x</i></div>
+    <div><i>x</i></div>
+  </div>
   <ul>
-    <li #contenedorOpcionesEmoticones class="chat_input_iconos_item" (click)="toggleEstadoOpcionesEmoticones()"><i>x</i>
-      <!-- OPCIÓN 1 -->
-      <div
-        class="contenedor_icono_opciones_emoticones"
-        [ngStyle]="{ 
-          'transform': estadoOpcionesEmoticones ? 'translateY(0)' : 'translateY(100%)', 
-          'display': estadoOpcionesEmoticones ? 'block' : 'none' }">
-        <div><i>x</i></div>
-        <div><i>x</i></div>
-        <div><i>x</i></div>
-        <div><i>x</i></div>
-      </div>
+
+    <!-- ICONO EMOTICONES -->
+    <li
+      #contenedorOpcionesEmoticones
+      class="chat_input_iconos_item"
+      (click)="toggleEstadoOpcionesEmoticones()">
+      <i class="icono_primero_principal">x</i>
     </li>
-    <li #contenedorOpcionesHerramientas class="chat_input_iconos_item" (click)="toggleEstadoOpcionesHerramientas()">
-      <i>x</i>
-      <!-- OPCIÓN 2 -->
+
+    <!-- ICONO HERRAMIENTAS -->
+    <li
+      #contenedorOpcionesHerramientas
+      class="chat_input_iconos_item"
+      (click)="toggleEstadoOpcionesHerramientas()">
+      <i class="icono_primero_principal">x</i>
+      <!-- OPCIONES HERRAMIENTAS -->
       <div class="contenedor_icono_opciones_herramientas"
-        [style.display]="estadoOpcionesHerramientas ? 'block' : 'none'">
-        <div><i>x</i></div>
-        <div><i>x</i></div>
-        <div><i>x</i></div>
-        <div><i>x</i></div>
+        [style.display]="estadoOpcionesHerramientas ? 'flex' : 'none'">
+        <div style="background-color: rgb(12, 144, 227);"><i>x</i></div>
+        <div style="background-color: rgb(7, 200, 94);"><i>x</i></div>
+        <div style="background-color: rgb(235, 64, 45);"><i>x</i></div>
+        <div style="background-color: rgb(240, 39, 163);"><i>x</i></div>
       </div>
     </li>
+
+    <!-- INPUT CHAT -->
     <li class="chat_input_text"><input type="text" placeholder="Escribe un mensaje aquí."></li>
-    <li><i></i>x</li>
+
+    <!-- ICONO AUDIO -->
+    <li><i class="icono_primero_principal">x</i></li>
   </ul>
 </div>

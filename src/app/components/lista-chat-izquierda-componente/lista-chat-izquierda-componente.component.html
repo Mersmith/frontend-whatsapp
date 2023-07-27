@@ -1,31 +1,43 @@
 <ng-container *ngIf="contactoItems.length > 0; else noContactos">
     <!-- CHAT ARCHIVADO -->
-    <div class="lista_chat_item">
-        <div class="chat_item_imagen chat_item_archivado">
-            <i>x</i>
+    <div class="lista_chat_item lista_chat_item_archivado">
+        <!-- ICONO -->
+        <div class="chat_item_imagen chat_item_icono_archivado">
+            <i class="icono_primero_principal_seleccionado">x</i>
         </div>
-        <div class="chat_item_detalle">
-            <div class="chat_item_nombre">
+
+        <!-- DETALLE -->
+        <div class="chat_item_detalle chat_item_detalle_archivado">
+            <div class="chat_item_nombre_archivado">
                 <h4>Archivados</h4>
+            </div>
+            <div class="chat_item_mensaje">
+                <b>2</b>
             </div>
         </div>
     </div>
 
     <!-- CHAT LISTA -->
-    <div *ngFor="let contactoItem of contactoItems" (click)="seleccionarContacto(contactoItem)" 
-    [ngClass]="{ 
+    <div *ngFor="let contactoItem of contactoItems" (click)="seleccionarContacto(contactoItem)" [ngClass]="{ 
             'lista_chat_item': true, 
+            'lista_chat_item_no_archivado': true, 
             'chat_no_leido': contactoItem.notification > 0 ,
             'chat_activo': contactoItem === contactoSeleccionado
         }">
+        <!-- PERFIL -->
         <div class="chat_item_imagen">
             <img src="assets/imagenes/perfiles/img1.jpg" class="perfil_imagen" alt="">
         </div>
+
+        <!-- DETALLE -->
         <div class="chat_item_detalle">
+            <!-- NOMBRE -->
             <div class="chat_item_nombre">
                 <h4>{{ contactoItem.name }}</h4>
                 <p class="chat_item_tiempo">{{ formatearFechaRecien(contactoItem.updatedat) }}</p>
             </div>
+
+            <!-- MENSAJE -->
             <div class="chat_item_mensaje">
                 <p>{{ contactoItem.number }}</p>
                 <b *ngIf="contactoItem.notification > 0">{{ contactoItem.notification }}</b>
