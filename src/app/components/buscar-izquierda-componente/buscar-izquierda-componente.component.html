@@ -1,28 +1,40 @@
-<div class="contenedor_buscar_chat_input">
-    <input type="text" placeholder="Busca un chat o inicia uno nuevo.">
-    <i>x</i>
-</div>
-<div
-    #contenedorOpcionesChats
-    class="contenedor_buscar_chat_filtro"
-    (click)="toggleEstadoOpcionesChats()"
-   >
-    <i>x</i>
-    <!-- OPCIÓN 3 -->
-    <div
-        class="contenedor_icono_opciones_filtro"
-        [style.display]="estadoOpcionesChats ? 'block' : 'none'">
-        <ul>
-            <li class="contenedor_icono_opciones_filtro_subtitulo">Chats</li>
-            <li class="contenedor_icono_opciones_filtro_subtitulo_no"> <i>x</i>Chat no leídos</li>
-            <li class="contenedor_icono_opciones_filtro_subtitulo_no"> <i>x</i>Contactos
-            </li>
-            <li class="contenedor_icono_opciones_filtro_subtitulo_no"> <i>x</i>Contactos no guardados</li>
-            <li class="contenedor_icono_opciones_filtro_subtitulo_no"> <i>x</i>Grupos
-            </li>
-            <li class="contenedor_icono_opciones_filtro_subtitulo">Etiquetas</li>
-            <li class="contenedor_icono_opciones_filtro_subtitulo_no"> <i>x</i>Importante
-            </li>
-        </ul>
+<div class="contenedor_whatsapp_buscar_izquierda">
+    <!-- CONTENEDOR INPUT BUSCAR -->
+    <div class="contenedor_buscar_chat_input">
+        <i class="icono_primero_secundario">x</i>
+        <input type="text" placeholder="Busca un chat o inicia uno nuevo.">
+    </div>
+
+    <!-- CONTENEDOR OPCIONES CHAT -->
+    <div #contenedorOpcionesChats class="contenedor_buscar_chat_filtro" (click)="toggleEstadoOpcionesChats()">
+        <i class="icono_primero_secundario">x</i>
+        <!-- OPCIONES CHATS -->
+        <div class="contenedor_opciones contenedor_icono_opciones_filtro"
+            [style.display]="estadoOpcionesChats ? 'block' : 'none'">
+            <ul>
+                <li class="contenedor_opciones_subtitulo">Chats</li>
+                <li class="contenedor_opciones_subtitulo_no contenedor_opciones_item_hover">
+                    <i class="icono_primero_secundario">x</i>
+                    Chat no leídos
+                </li>
+                <li class="contenedor_opciones_subtitulo_no contenedor_opciones_item_hover">
+                    <i class="icono_primero_secundario">x</i>
+                    Contactos
+                </li>
+                <li class="contenedor_opciones_subtitulo_no contenedor_opciones_item_hover">
+                    <i class="icono_primero_secundario">x</i>
+                    Contactos no guardados
+                </li>
+                <li class="contenedor_opciones_subtitulo_no contenedor_opciones_item_hover">
+                    <i class="icono_primero_secundario">x</i>
+                    Grupos
+                </li>
+                <li class="contenedor_opciones_subtitulo">Etiquetas</li>
+                <li class="contenedor_opciones_subtitulo_no contenedor_opciones_item_hover">
+                    <i class="icono_primero_secundario">x</i>
+                    Importante
+                </li>
+            </ul>
+        </div>
     </div>
 </div>

@@ -57,3 +57,10 @@ git status
 git add .
 git commit -m "Sidebar y Opciones"
 git push origin Sidebar_Opciones
+
+git checkout -b Desing
+git branch
+git status
+git add .
+git commit -m "Desing"
+git push origin Desing

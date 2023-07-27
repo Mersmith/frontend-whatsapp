@@ -39,4 +39,9 @@ export class ChatInputDerechaComponenteComponent {
     }
   }
 
+  getInputBottomAltoComputadora(): string {
+    return getComputedStyle(document.documentElement)
+      .getPropertyValue('--input-bottom-alto-computadora');
+  }
+
 }

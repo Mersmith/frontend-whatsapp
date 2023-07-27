@@ -6,25 +6,25 @@
         <h4>Qazi <br><span>En linea</span></h4>
     </div>
     <ul class="cabecera_iconos">
-        <li class="cabecera_iconos_item" (click)="toggleContenedorWhatsappBuscar()"><i>x</i></li>
-        <li
-            #contenedorOpcionesInfo
-            class="cabecera_iconos_item"
-            (click)="toggleEstadoOpcionesInfo()">
-            <i>x</i>
-            <!-- OPCIÓN 3 -->
-            <div
-                class="contenedor_icono_opciones_chat"
+        <li class="cabecera_iconos_item"
+            (click)="toggleContenedorWhatsappBuscar()">
+            <i class="icono_primero_principal">x</i>
+        </li>
+        <li #contenedorOpcionesInfo class="cabecera_iconos_item" (click)="toggleEstadoOpcionesInfo()">
+            <i class="icono_primero_principal">x</i>
+            <!-- OPCIONES INFO -->
+            <div class="contenedor_opciones contenedor_icono_opciones_chat"
                 [style.display]="estadoOpcionesInfo ? 'block' : 'none'">
                 <ul>
-                    <li>Info. del contacto</li>
-                    <li>Seleccionar mensajes</li>
-                    <li>Cerrar chat</li>
-                    <li>Silenciar notificaciones</li>
-                    <li>Mensajes temporales</li>
-                    <li>Eliminar chat</li>
-                    <li>Reportar</li>
-                    <li>Bloquear</li>
+                    <li class="contenedor_opciones_subtitulo contenedor_opciones_item_hover">Info. del contacto</li>
+                    <li class="contenedor_opciones_subtitulo contenedor_opciones_item_hover">Seleccionar mensajes</li>
+                    <li class="contenedor_opciones_subtitulo contenedor_opciones_item_hover">Cerrar chat</li>
+                    <li class="contenedor_opciones_subtitulo contenedor_opciones_item_hover">Silenciar notificaciones
+                    </li>
+                    <li class="contenedor_opciones_subtitulo contenedor_opciones_item_hover">Mensajes temporales</li>
+                    <li class="contenedor_opciones_subtitulo contenedor_opciones_item_hover">Eliminar chat</li>
+                    <li class="contenedor_opciones_subtitulo contenedor_opciones_item_hover">Reportar</li>
+                    <li class="contenedor_opciones_subtitulo contenedor_opciones_item_hover">Bloquear</li>
                 </ul>
             </div>
         </li>

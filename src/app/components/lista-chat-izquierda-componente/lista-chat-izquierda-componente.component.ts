@@ -1,22 +1,29 @@
-import { Component, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ContactoSeleccionadoService } from 'src/app/services/contacto-seleccionado.service';
 import { ContactoInteface } from 'src/app/models/contacto-item.model';
 import { formatDistanceToNow, format } from 'date-fns';
 import { es } from 'date-fns/locale';
+import { ChatService } from 'src/app/services/chat-service/chat.service';
 @Component({
   selector: 'app-lista-chat-izquierda-componente',
   templateUrl: './lista-chat-izquierda-componente.component.html',
   styleUrls: ['./lista-chat-izquierda-componente.component.css']
 })
-export class ListaChatIzquierdaComponenteComponent {
+export class ListaChatIzquierdaComponenteComponent implements OnInit {
 
-  @Input() contactoItems: ContactoInteface[] = [];
+  contactoItems: ContactoInteface[] = [];
 
   contactoSeleccionado: ContactoInteface | null = null;
 
   constructor(
-    private contactoSeleccionadoService: ContactoSeleccionadoService
+    private contactoSeleccionadoService: ContactoSeleccionadoService,
+    private chatService: ChatService,
+
   ) { }
+
+  ngOnInit(): void {
+    this.contactoItems = this.chatService.getMisSalas();
+  }
 
   seleccionarContacto(contacto: ContactoInteface): void {
     this.contactoSeleccionadoService.setContactoSeleccionado(contacto);

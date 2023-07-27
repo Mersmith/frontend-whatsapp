@@ -1,7 +1,7 @@
 .contenedor_whatsapp_caja_mensajes_derecha {
   position: relative;
   /*width: 100%;*/
-  height: calc(100% - 120px);
+  height: calc(100% - var(--cabecera-top-alto-computadora) - var(--input-bottom-alto-computadora));
   padding: 20px 50px;
   overflow-y: scroll;
   display: flex;

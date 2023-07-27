@@ -1,7 +1,5 @@
 import { Component, OnInit, ViewChild, ElementRef, HostListener } from '@angular/core';
-import { ContactoInteface } from '../../models/contacto-item.model';
 import { ToogleSidebarService } from 'src/app/services/toogle-sidebar.service';
-import { ChatService } from 'src/app/services/chat-service/chat.service';
 import { ContactoSeleccionadoService } from 'src/app/services/contacto-seleccionado.service';
 @Component({
   selector: 'app-inicio-pagina',
@@ -9,8 +7,6 @@ import { ContactoSeleccionadoService } from 'src/app/services/contacto-seleccion
   styleUrls: ['./inicio-pagina.component.css']
 })
 export class InicioPaginaComponent implements OnInit {
-
-  contactoItems: ContactoInteface[] = [];
 
   @ViewChild('contenedorWhatsappPerfil', { static: true })
   contenedorWhatsappPerfilRef!: ElementRef<HTMLElement>;
@@ -23,12 +19,10 @@ export class InicioPaginaComponent implements OnInit {
 
   constructor(
     private toogleSidebarService: ToogleSidebarService,
-    private chatService: ChatService,
     private contactoSeleccionadoService: ContactoSeleccionadoService
   ) { }
 
   ngOnInit(): void {
-    this.contactoItems = this.chatService.getMisSalas();
     this.ajustarAnchoContenedorPerfil();
   }
 
