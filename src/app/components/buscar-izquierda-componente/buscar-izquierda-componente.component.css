@@ -38,3 +38,13 @@
   top: 36px;
   transform-origin: left top;
 }
+
+@media (max-width: 800px) {
+
+  /* CONTENEDOR ICONO OPCIONES FILTRO */
+  .contenedor_icono_opciones_filtro {
+    right: 18px;
+    transform-origin: right top;
+  }
+
+}

@@ -1,4 +1,6 @@
-import { Component, HostListener, ViewChild, ElementRef } from '@angular/core';
+import { Component, HostListener, ViewChild, ElementRef, Input } from '@angular/core';
+import { ContactoInteface } from 'src/app/models/contacto-item.model';
+import { ContactoSeleccionadoService } from 'src/app/services/contacto-seleccionado.service';
 import { ToogleSidebarService } from 'src/app/services/toogle-sidebar.service';
 
 @Component({
@@ -8,13 +10,16 @@ import { ToogleSidebarService } from 'src/app/services/toogle-sidebar.service';
 })
 export class CabeceraDerechaComponenteComponent {
 
+  @Input() contactoSeleccionado: ContactoInteface | null = null;
+
   estadoOpcionesInfo: Boolean = false;
 
   @ViewChild('contenedorOpcionesInfo', { static: true })
   contenedorOpcionesInfoRef!: ElementRef;
 
   constructor(
-    private toogleSidebarService: ToogleSidebarService
+    private toogleSidebarService: ToogleSidebarService,
+    private contactoSeleccionadoService: ContactoSeleccionadoService
   ) { }
 
   toggleContenedorWhatsappBuscar() {
@@ -37,6 +42,10 @@ export class CabeceraDerechaComponenteComponent {
     if (opcionesElement && !opcionesElement.contains(target)) {
       this.estadoOpcionesInfo = false;
     }
+  }
+
+  cerrarContenedorWhatsappDerecha(){
+    this.contactoSeleccionadoService.setContactoSeleccionado(null);
   }
 
 }

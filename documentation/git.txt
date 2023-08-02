@@ -64,3 +64,10 @@ git status
 git add .
 git commit -m "Desing"
 git push origin Desing
+
+git checkout -b Desing_movil
+git branch
+git status
+git add .
+git commit -m "Desing móvil"
+git push origin Desing_movil

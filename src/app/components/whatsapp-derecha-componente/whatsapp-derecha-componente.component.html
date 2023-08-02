@@ -1,6 +1,7 @@
 <ng-container *ngIf="contactoSeleccionado; else noContactoSeleccionado">
     <!-- CABECERA DERECHA -->
-    <app-cabecera-derecha-componente></app-cabecera-derecha-componente>
+    <app-cabecera-derecha-componente
+        [contactoSeleccionado]="contactoSeleccionado"></app-cabecera-derecha-componente>
 
     <!-- CAJA MENSAJES DERECHA -->
     <app-caja-mensajes-derecha-componente

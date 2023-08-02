@@ -42,6 +42,10 @@ export class InicioPaginaComponent implements OnInit {
   obtenerEstadoContenedorWhatsappNuevoChat() {
     return this.toogleSidebarService.obtenerEstadoContenedor(3);
   }
+  
+  existeContactoSeleccionado() {
+      return this.contactoSeleccionadoService.getContactoSeleccionado();
+  }
 
   private ajustarAnchoContenedorPerfil() {
     const contenedorWhatsappIzquierda = this.contenedorWhatsappIzquierdaRef.nativeElement;

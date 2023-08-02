@@ -1,9 +1,14 @@
 <div class="contenedor_whatsapp_cabecera_derecha">
     <div class="whatsapp_cabecera_derecha">
+        <i
+        class="icono_primero_principal whatsapp_cabecera_derecha_icono_retroceder"
+        (click)="cerrarContenedorWhatsappDerecha()">
+            x
+        </i>
         <div class="cabecera_perfil_propio">
             <img src="assets/imagenes/perfiles/img1.jpg" alt="" class="perfil_imagen">
         </div>
-        <h4>Qazi <br><span>En linea</span></h4>
+        <h4>{{contactoSeleccionado?.name}}<br><span>En linea</span></h4>
     </div>
     <ul class="cabecera_iconos">
         <li class="cabecera_iconos_item"
