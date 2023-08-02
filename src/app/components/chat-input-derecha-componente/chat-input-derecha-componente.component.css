@@ -44,7 +44,6 @@ input[type=text]::placeholder {
     background-color: var(--background-color-principal);
     width: 100%;
     transition: transform 0.5s ease;
-    display: none;
 }
 
 /* HERRAMIENTAS */

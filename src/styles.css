@@ -38,7 +38,8 @@
     --color-input-placeholder: #6b7582;
 
     /* BORDER */
-    --boder-contenedor: 1px solid #e9edef;
+    --boder-contenedor: 1px solid #d1d7db;
+    --boder-lista-contenedor-contacto: 1px solid #e9edef;
 
     /* BOX-SHADOW */
     --sombra-opciones: 0 2px 5px 0 rgba(11, 20, 26, .26), 0 2px 10px 0 rgba(11, 20, 26, .16);

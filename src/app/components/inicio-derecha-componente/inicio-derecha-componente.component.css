@@ -2,8 +2,7 @@
     position: relative;
     width: 100%;
     height: 100%;
-    padding-top: 28px;
-    padding-bottom: 28px;
+    padding: 28px;
     background-color: #f0f2f5;
     display: flex;
     flex-direction: column;
@@ -25,6 +24,7 @@ p {
     font-weight: 400;
     line-height: 20px;
     color: #667781;
+    text-align: center;
 }
 
 span {
@@ -33,4 +33,13 @@ span {
     color: #8696a0;
     font-size: 14px;
     line-height: 20px;
+}
+
+@media (max-width: 800px) {
+
+    /* CONTENEDOR WHATSAPP IZQUIERDA */
+    .contenedor_whatsapp_inicio_derecha img {
+        width: 300px;
+    }
+
 }

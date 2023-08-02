@@ -15,12 +15,16 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 15px;
+}
+
+.whatsapp_cabecera_derecha_icono_retroceder {
+    display: none;
 }
 
 .whatsapp_cabecera_derecha h4 {
     font-weight: 500;
     line-height: 1.2em;
-    margin-left: 15px;
 }
 
 .whatsapp_cabecera_derecha h4 span {
@@ -43,4 +47,12 @@
     top: 36px;
     transform-origin: right top;
     right: 4px;
+}
+
+@media (max-width: 800px) {
+
+    .whatsapp_cabecera_derecha_icono_retroceder {
+        display: block;
+    }
+
 }
