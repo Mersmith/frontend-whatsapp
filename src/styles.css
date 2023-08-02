@@ -9,6 +9,9 @@
 
 :root {
     /* BACKGROUND */
+    --background-color-fondo-principal: #00a884;
+    --background-color-fondo-secundario: #d9dbd5;
+
     --background-color-principal: #f0f2f5;
     --background-color-secundario: #fff;
     --background-color-terciario: #e5ddd5;
@@ -25,7 +28,8 @@
 
     /* COLOR */
     --color-subtitulo: #111b21;
-    --color-seleccionado: #00a884;;
+    --color-seleccionado: #00a884;
+    ;
 
     /* ICON */
     --size-icono-principal: 22px;
@@ -58,10 +62,10 @@ a {
 body {
     position: relative;
     min-height: 100vh;
-    background: linear-gradient(#009688 0%,
-            #009688 130px,
-            #d9dbd5 130px,
-            #d9dbd5 100%);
+    background: linear-gradient(var(--background-color-fondo-principal) 0%,
+            var(--background-color-fondo-principal) 130px,
+            var(--background-color-fondo-secundario) 130px,
+            var(--background-color-fondo-secundario) 100%);
 }
 
 /* INPUT */
@@ -88,6 +92,26 @@ input[type=text]::placeholder {
     font-size: var(--size-icono-principal);
     color: var(--color-icono-principal);
     cursor: pointer;
+    margin-top: 6px;
+}
+
+.icono_primero_principal svg {
+    fill: var(--color-icono-principal);
+    width: 22px;
+    height: 22px;
+}
+
+.icono_primero_secundario {
+    font-size: var(--size-icono-secundario);
+    color: var(--color-icono-secundario);
+    cursor: pointer;
+    margin-top: 6px;
+}
+
+.icono_primero_secundario svg {
+    fill: var(--color-icono-secundario);
+    width: 18px;
+    height: 18px;
 }
 
 .icono_primero_principal_seleccionado {
@@ -96,10 +120,31 @@ input[type=text]::placeholder {
     cursor: pointer;
 }
 
-.icono_primero_secundario {
-    font-size: var(--size-icono-secundario);
-    color: var(--color-icono-secundario);
-    cursor: pointer;
+.icono_primero_principal_seleccionado svg {
+    fill: var(--color-seleccionado);
+    width: 22px;
+    height: 22px;
+}
+
+.icono_estado_mensaje svg{
+    width: 18px;
+    height: 18px;
+}
+
+.enviado svg {
+    fill: #333333;
+}
+
+.recibido svg {
+    fill: #8696a0;
+}
+
+.leido svg {
+    fill: #53bdeb;
+}
+
+.fallo svg {
+    fill: #fb0000;
 }
 
 /* CONTENEDOR OPCIONES */
@@ -147,6 +192,7 @@ input[type=text]::placeholder {
     cursor: pointer;
 }
 
+/* CONTENEDOR CABECERA PERFIL */
 .cabecera_perfil_propio {
     position: relative;
     width: 40px;

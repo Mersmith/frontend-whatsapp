@@ -1,7 +1,8 @@
 import { Component, HostListener, ViewChild, ElementRef, Input } from '@angular/core';
 import { ContactoInteface } from 'src/app/models/contacto-item.model';
-import { ContactoSeleccionadoService } from 'src/app/services/contacto-seleccionado.service';
-import { ToogleSidebarService } from 'src/app/services/toogle-sidebar.service';
+import { ContactoSeleccionadoService } from 'src/app/services/contacto-seleccionado-service/contacto-seleccionado.service';
+import { ToogleSidebarService } from 'src/app/services/toogle-sidebar-servide/toogle-sidebar.service'; 
+import { IconoService } from 'src/app/services/icono-service/icono.service';
 
 @Component({
   selector: 'app-cabecera-derecha-componente',
@@ -9,6 +10,10 @@ import { ToogleSidebarService } from 'src/app/services/toogle-sidebar.service';
   styleUrls: ['./cabecera-derecha-componente.component.css']
 })
 export class CabeceraDerechaComponenteComponent {
+
+  public iconoBuscar = this.iconoService.IconoBuscar();
+  public iconoOpciones = this.iconoService.IconoOpciones();
+  public iconoCerrar = this.iconoService.IconoCerrar();
 
   @Input() contactoSeleccionado: ContactoInteface | null = null;
 
@@ -19,7 +24,8 @@ export class CabeceraDerechaComponenteComponent {
 
   constructor(
     private toogleSidebarService: ToogleSidebarService,
-    private contactoSeleccionadoService: ContactoSeleccionadoService
+    private contactoSeleccionadoService: ContactoSeleccionadoService,
+    private iconoService: IconoService
   ) { }
 
   toggleContenedorWhatsappBuscar() {

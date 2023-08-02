@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ToogleSidebarService } from 'src/app/services/toogle-sidebar.service';
+import { ToogleSidebarService } from 'src/app/services/toogle-sidebar-servide/toogle-sidebar.service';
 
 @Component({
   selector: 'app-perfil-izquierda-componente',

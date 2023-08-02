@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ContactoInteface } from '../../models/contacto-item.model';
-import { ContactoSeleccionadoService } from 'src/app/services/contacto-seleccionado.service';
+import { ContactoSeleccionadoService } from 'src/app/services/contacto-seleccionado-service/contacto-seleccionado.service';
 
 @Component({
   selector: 'app-whatsapp-derecha-componente',

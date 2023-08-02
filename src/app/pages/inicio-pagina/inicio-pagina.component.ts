@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef, HostListener } from '@angular/core';
-import { ToogleSidebarService } from 'src/app/services/toogle-sidebar.service';
-import { ContactoSeleccionadoService } from 'src/app/services/contacto-seleccionado.service';
+import { ToogleSidebarService } from 'src/app/services/toogle-sidebar-servide/toogle-sidebar.service';
+import { ContactoSeleccionadoService } from 'src/app/services/contacto-seleccionado-service/contacto-seleccionado.service';
 @Component({
   selector: 'app-inicio-pagina',
   templateUrl: './inicio-pagina.component.html',

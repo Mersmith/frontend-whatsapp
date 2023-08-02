@@ -1,4 +1,5 @@
 import { Component, HostListener, ViewChild, ElementRef } from '@angular/core';
+import { IconoService } from 'src/app/services/icono-service/icono.service';
 
 @Component({
   selector: 'app-chat-input-derecha-componente',
@@ -6,6 +7,11 @@ import { Component, HostListener, ViewChild, ElementRef } from '@angular/core';
   styleUrls: ['./chat-input-derecha-componente.component.css']
 })
 export class ChatInputDerechaComponenteComponent {
+
+  public iconoEmoticon = this.iconoService.IconoEmoticon();
+  public iconoSuma = this.iconoService.IconoSuma();
+  public iconoMicrofono = this.iconoService.IconoMicrofono();
+
 
   estadoOpcionesHerramientas: Boolean = false;
   estadoOpcionesEmoticones: Boolean = false;
@@ -15,6 +21,10 @@ export class ChatInputDerechaComponenteComponent {
 
   @ViewChild('contenedorOpcionesEmoticones', { static: true })
   contenedorOpcionesEmoticonesRef!: ElementRef;
+
+  constructor(
+    private iconoService: IconoService
+  ) { }
 
   toggleEstadoOpcionesHerramientas() {
     this.estadoOpcionesHerramientas = !this.estadoOpcionesHerramientas;
