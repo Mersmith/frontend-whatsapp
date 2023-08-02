@@ -1,15 +1,19 @@
 import { Component, OnInit } from '@angular/core';
-import { ContactoSeleccionadoService } from 'src/app/services/contacto-seleccionado.service';
+import { ContactoSeleccionadoService } from 'src/app/services/contacto-seleccionado-service/contacto-seleccionado.service';
 import { ContactoInteface } from 'src/app/models/contacto-item.model';
 import { formatDistanceToNow, format } from 'date-fns';
 import { es } from 'date-fns/locale';
 import { ChatService } from 'src/app/services/chat-service/chat.service';
+import { IconoService } from 'src/app/services/icono-service/icono.service';
+
 @Component({
   selector: 'app-lista-chat-izquierda-componente',
   templateUrl: './lista-chat-izquierda-componente.component.html',
   styleUrls: ['./lista-chat-izquierda-componente.component.css']
 })
 export class ListaChatIzquierdaComponenteComponent implements OnInit {
+
+  public iconoArchivo = this.iconoService.IconoArchivo();
 
   contactoItems: ContactoInteface[] = [];
 
@@ -18,7 +22,7 @@ export class ListaChatIzquierdaComponenteComponent implements OnInit {
   constructor(
     private contactoSeleccionadoService: ContactoSeleccionadoService,
     private chatService: ChatService,
-
+    private iconoService: IconoService
   ) { }
 
   ngOnInit(): void {

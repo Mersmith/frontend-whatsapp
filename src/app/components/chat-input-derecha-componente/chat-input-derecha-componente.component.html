@@ -16,7 +16,7 @@
       #contenedorOpcionesEmoticones
       class="chat_input_iconos_item"
       (click)="toggleEstadoOpcionesEmoticones()">
-      <i class="icono_primero_principal">x</i>
+      <i class="icono_primero_principal" [innerHTML]="iconoEmoticon"></i>
     </li>
 
     <!-- ICONO HERRAMIENTAS -->
@@ -24,7 +24,7 @@
       #contenedorOpcionesHerramientas
       class="chat_input_iconos_item"
       (click)="toggleEstadoOpcionesHerramientas()">
-      <i class="icono_primero_principal">x</i>
+      <i class="icono_primero_principal" [innerHTML]="iconoSuma"></i>
       <!-- OPCIONES HERRAMIENTAS -->
       <div class="contenedor_icono_opciones_herramientas"
         [style.display]="estadoOpcionesHerramientas ? 'flex' : 'none'">
@@ -39,6 +39,6 @@
     <li class="chat_input_text"><input type="text" placeholder="Escribe un mensaje aquí."></li>
 
     <!-- ICONO AUDIO -->
-    <li><i class="icono_primero_principal">x</i></li>
+    <li><i class="icono_primero_principal" [innerHTML]="iconoMicrofono"></i></li>
   </ul>
 </div>

@@ -1,12 +1,15 @@
 import { Component, HostListener, ViewChild, ElementRef } from '@angular/core';
-import { ToogleSidebarService } from 'src/app/services/toogle-sidebar.service';
-
+import { IconoService } from 'src/app/services/icono-service/icono.service';
+import { ToogleSidebarService } from 'src/app/services/toogle-sidebar-servide/toogle-sidebar.service';
 @Component({
   selector: 'app-cabecera-izquierda-componente',
   templateUrl: './cabecera-izquierda-componente.component.html',
   styleUrls: ['./cabecera-izquierda-componente.component.css']
 })
 export class CabeceraIzquierdaComponenteComponent {
+  public iconoOpciones = this.iconoService.IconoOpciones();
+  public iconoChat = this.iconoService.IconoChat();
+  public iconoEstado = this.iconoService.IconoEstado();
 
   estadoOpcionesPerfil: Boolean = false;
 
@@ -14,8 +17,9 @@ export class CabeceraIzquierdaComponenteComponent {
   contenedorOpcionesPerfilRef!: ElementRef;
 
   constructor(
-    private toogleSidebarService: ToogleSidebarService
-  ) { }
+    private toogleSidebarService: ToogleSidebarService,
+    private iconoService: IconoService
+  ) {}
 
   toggleContenedorWhatsappPerfil() {
     if (this.toogleSidebarService.obtenerEstadoContenedor(2)) {

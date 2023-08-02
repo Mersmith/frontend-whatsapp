@@ -183,12 +183,25 @@
         <!-- HORA Y ESTADO MENSAJE -->
         <ng-container>
             <span>{{ formatearHora(mensaje.hora) }}</span>
-            <i *ngIf="mensaje.envio == 1" [ngClass]="{ 
-                'enviado': mensaje.sent === 2,
-                'recibido': mensaje.sent === 1,
-                'leido': mensaje.sent === 3,
-                'fallo': mensaje.sent === 0,
-            }">x</i>
+            <ng-container *ngIf="mensaje.envio == 1;">
+
+                <ng-container *ngIf="mensaje.sent > 1;  else elseUnCheck">
+                    <i [ngClass]="{
+                  'icono_estado_mensaje': true,
+                  'enviado': mensaje.sent === 2,
+                  'leido': mensaje.sent === 3,
+                }" [innerHTML]="iconoCheckDoble"></i>
+                </ng-container>
+
+                <ng-template #elseUnCheck>
+                    <i [ngClass]="{
+                        'icono_estado_mensaje': true,
+                        'fallo': mensaje.sent == 0,
+                        'recibido': mensaje.sent == 1,
+                      }" [innerHTML]="iconoCheck"></i>
+                </ng-template>
+
+            </ng-container>
         </ng-container>
     </ng-container>
 </div>

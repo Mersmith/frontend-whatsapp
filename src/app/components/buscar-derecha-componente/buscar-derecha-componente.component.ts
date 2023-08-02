@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { ToogleSidebarService } from 'src/app/services/toogle-sidebar.service';
+import { ToogleSidebarService } from 'src/app/services/toogle-sidebar-servide/toogle-sidebar.service';
+import { IconoService } from 'src/app/services/icono-service/icono.service';
 
 @Component({
   selector: 'app-buscar-derecha-componente',
@@ -8,8 +9,11 @@ import { ToogleSidebarService } from 'src/app/services/toogle-sidebar.service';
 })
 export class BuscarDerechaComponenteComponent {
 
+  public iconoCerrar = this.iconoService.IconoCerrar();
+
   constructor(
-    private toogleSidebarService: ToogleSidebarService
+    private toogleSidebarService: ToogleSidebarService,
+    private iconoService: IconoService
   ) { }
 
   cerrarContenedorWhatsappBuscar() {

@@ -2,8 +2,7 @@
     <div class="whatsapp_cabecera_derecha">
         <i
         class="icono_primero_principal whatsapp_cabecera_derecha_icono_retroceder"
-        (click)="cerrarContenedorWhatsappDerecha()">
-            x
+        (click)="cerrarContenedorWhatsappDerecha()" [innerHTML]="iconoCerrar">
         </i>
         <div class="cabecera_perfil_propio">
             <img src="assets/imagenes/perfiles/img1.jpg" alt="" class="perfil_imagen">
@@ -13,10 +12,10 @@
     <ul class="cabecera_iconos">
         <li class="cabecera_iconos_item"
             (click)="toggleContenedorWhatsappBuscar()">
-            <i class="icono_primero_principal">x</i>
+            <i class="icono_primero_principal" [innerHTML]="iconoBuscar"></i>
         </li>
         <li #contenedorOpcionesInfo class="cabecera_iconos_item" (click)="toggleEstadoOpcionesInfo()">
-            <i class="icono_primero_principal">x</i>
+            <i class="icono_primero_principal" [innerHTML]="iconoOpciones"></i>
             <!-- OPCIONES INFO -->
             <div class="contenedor_opciones contenedor_icono_opciones_chat"
                 [style.display]="estadoOpcionesInfo ? 'block' : 'none'">

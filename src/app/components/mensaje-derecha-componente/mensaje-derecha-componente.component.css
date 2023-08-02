@@ -5,29 +5,6 @@ span {
     opacity: 0.5;
 }
 
-i {
-    font-size: 1.2em;
-    cursor: pointer;
-    position: relative;
-    top: 3px;
-}
-
-.enviado {
-    color: #333333;
-}
-
-.recibido {
-    color: #8696a0;
-}
-
-.leido {
-    color: #53bdeb;
-}
-
-.fallo {
-    color: #fb0000;
-}
-
 /* CONTENEDOR MENSAJE RESPUESTA */
 .contenedor_mensaje_respuesta {
     display: flex;

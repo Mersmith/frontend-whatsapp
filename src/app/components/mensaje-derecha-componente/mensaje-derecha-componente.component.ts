@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { format } from 'date-fns';
 import { es } from 'date-fns/locale';
+import { IconoService } from 'src/app/services/icono-service/icono.service';
 
 @Component({
   selector: 'app-mensaje-derecha-componente',
@@ -8,10 +9,18 @@ import { es } from 'date-fns/locale';
   styleUrls: ['./mensaje-derecha-componente.component.css']
 })
 export class MensajeDerechaComponenteComponent implements OnInit {
+
+  public iconoCheck = this.iconoService.IconoCheck();
+  public iconoCheckDoble = this.iconoService.IconoCheckDoble();
+
   @Input() mensaje: any;
   @Input() mensajeRespuesta: boolean = false;
 
   tipoMensaje: any = '';
+
+  constructor(
+    private iconoService: IconoService
+  ) { }
 
   formatearHora(timeString: string): string {
     const date = new Date(`2000-01-01T${timeString}`);

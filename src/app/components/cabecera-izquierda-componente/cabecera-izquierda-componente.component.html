@@ -4,15 +4,15 @@
             (click)="toggleContenedorWhatsappPerfil()">
     </div>
     <ul class="cabecera_iconos">
-        <li class="cabecera_iconos_item"><i class="icono_primero_principal">x</i></li>
+        <li class="cabecera_iconos_item"><i class="icono_primero_principal" [innerHTML]="iconoEstado"></i></li>
         <li class="cabecera_iconos_item" (click)="toggleContenedorWhatsappNuevoChat()">
-            <i class="icono_primero_principal">x</i>
+            <i class="icono_primero_principal" [innerHTML]="iconoChat"></i>
         </li>
         <li
             #contenedorOpcionesPerfil
             class="cabecera_iconos_item"
             (click)="toggleEstadoOpcionesPerfil()">
-            <i class="icono_primero_principal">x</i>
+            <i class="icono_primero_principal" [innerHTML]="iconoOpciones">x</i>
             <!-- OPCIONES PERFIL -->
             <div class="contenedor_opciones contenedor_icono_opciones_perfil"
                 [style.display]="estadoOpcionesPerfil ? 'block' : 'none'">
