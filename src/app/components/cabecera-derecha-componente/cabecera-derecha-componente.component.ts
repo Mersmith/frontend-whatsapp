@@ -14,6 +14,7 @@ export class CabeceraDerechaComponenteComponent {
   public iconoBuscar = this.iconoService.IconoBuscar();
   public iconoOpciones = this.iconoService.IconoOpciones();
   public iconoCerrar = this.iconoService.IconoCerrar();
+  public iconoChatLista = this.iconoService.IconoChatLista();
 
   @Input() contactoSeleccionado: ContactoInteface | null = null;
 
@@ -33,6 +34,14 @@ export class CabeceraDerechaComponenteComponent {
       this.toogleSidebarService.ocultarContenedor(1);
     } else {
       this.toogleSidebarService.mostrarContenedor(1);
+    }
+  }
+
+  togglePlantillasMensajesSidebar() {
+    if (this.toogleSidebarService.obtenerEstadoContenedor(5)) {
+      this.toogleSidebarService.ocultarContenedor(5);
+    } else {
+      this.toogleSidebarService.mostrarContenedor(5);
     }
   }
 

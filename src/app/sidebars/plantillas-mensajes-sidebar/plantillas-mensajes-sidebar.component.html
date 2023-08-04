@@ -1,0 +1,25 @@
+<!-- CABECERA -->
+<div class="contenedor_cabecera_buscar_derecha">
+    <i class="icono_primero_principal" (click)="cerrarPlantillasMensajesSidebar()" [innerHTML]="iconoCerrar"></i>
+    <span>
+        Plantillas
+    </span>
+</div>
+
+<!-- CUERPO -->
+<div class="contenedor_cuerpo scroll_bar_whatsapp">
+
+    <!-- ITEM -->
+    <div class="contenedor_item" *ngFor="let mensajeRapidoItem of mensajesRapidosItems" (click)="seleccionarMensajeRapido(mensajeRapidoItem)">
+
+        <span>{{ mensajeRapidoItem.tipo }}</span>
+
+        <div class="mensaje_plantilla">
+            <p>{{ mensajeRapidoItem.texto }}</p>
+        </div>
+
+        <button>Elegir</button>
+
+    </div>
+
+</div>

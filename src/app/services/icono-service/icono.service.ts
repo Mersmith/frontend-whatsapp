@@ -17,7 +17,9 @@ import {
   iconoEmoticon,
   iconoMicrofono,
   iconoCheck,
-  iconoCheckDoble
+  iconoCheckDoble,
+  iconoFiltroComplejo,
+  iconoChatLista
 } from 'src/assets/icons';
 
 @Injectable({
@@ -99,6 +101,14 @@ export class IconoService {
 
   public IconoCheckDoble() {
     return this.sanitizer.bypassSecurityTrustHtml(iconoCheckDoble);
+  }
+
+  public IconoFiltroComplejo() {
+    return this.sanitizer.bypassSecurityTrustHtml(iconoFiltroComplejo);
+  }
+
+  public IconoChatLista() {
+    return this.sanitizer.bypassSecurityTrustHtml(iconoChatLista);
   }
 
 }

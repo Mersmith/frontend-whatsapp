@@ -1,9 +1,10 @@
 <!-- CONTENEDOR WHATSAPP PRINCIPAL -->
 <div class="contenedor_whatsapp_principal">
 
+   
+
     <!-- CONTENEDOR WHATSAPP NUEVO CHAT -->
     <div
-        #contenedorWhatsappNuevoChat
         class="contenedor_whatsapp_nuevo_chat"
         [style.left]="obtenerEstadoContenedorWhatsappNuevoChat() ? '0' : '-100%'">
         <app-nuevo-chat-izquierda-componente></app-nuevo-chat-izquierda-componente>
@@ -11,7 +12,6 @@
 
     <!-- CONTENEDOR WHATSAPP PERFIL -->
     <div
-        #contenedorWhatsappPerfil
         class="contenedor_whatsapp_perfil"
         [style.left]="obtenerEstadoContenedorWhatsappPerfil() ? '0' : '-100%'">
         <app-perfil-izquierda-componente></app-perfil-izquierda-componente>
@@ -19,7 +19,6 @@
 
     <!-- CONTENEDOR WHATSAPP IZQUIERDA -->
     <div
-        #contenedorWhatsappIzquierda
         class="contenedor_whatsapp_izquierda">
         <app-whatsapp-izquierda-componente>
         </app-whatsapp-izquierda-componente>
@@ -33,6 +32,20 @@
         }">
         <app-whatsapp-derecha-componente></app-whatsapp-derecha-componente>
     </div>
+
+    <!-- CONTENEDOR FILTRO SIDEBAR -->
+    <div
+        class="contenedor_filtro_sidebar"
+        [style.max-width]="obtenerEstadoFiltroSidebar() ? '100%' : '0'">
+        <app-filtro-sidebar></app-filtro-sidebar>
+    </div> 
+
+    <!-- CONTENEDOR PLANTILLAS MENSAJES SIDEBAR -->
+    <div
+        class="contenedor_plantillas_mensajes_sidebar"
+        [style.max-width]="obtenerEstadoPlantillasMensajesSidebar() ? '100%' : '0'">
+        <app-plantillas-mensajes-sidebar></app-plantillas-mensajes-sidebar>
+    </div> 
 
     <!-- CONTENEDOR WHATSAPP BUSCAR -->
     <div 

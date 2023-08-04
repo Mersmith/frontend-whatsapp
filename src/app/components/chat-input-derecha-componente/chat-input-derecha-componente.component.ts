@@ -1,17 +1,21 @@
-import { Component, HostListener, ViewChild, ElementRef } from '@angular/core';
+import { Component, HostListener, ViewChild, ElementRef, OnDestroy } from '@angular/core';
 import { IconoService } from 'src/app/services/icono-service/icono.service';
+import { MensajeRapidoSeleccionadoService } from 'src/app/services/mensaje-rapido-seleccionado-service/mensaje-rapido-seleccionado.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-chat-input-derecha-componente',
   templateUrl: './chat-input-derecha-componente.component.html',
   styleUrls: ['./chat-input-derecha-componente.component.css']
 })
-export class ChatInputDerechaComponenteComponent {
+export class ChatInputDerechaComponenteComponent implements OnDestroy {
 
   public iconoEmoticon = this.iconoService.IconoEmoticon();
   public iconoSuma = this.iconoService.IconoSuma();
   public iconoMicrofono = this.iconoService.IconoMicrofono();
 
+  inputValueMensaje: string = ""
+  private mensajeRapidoSeleccionadoSubscription: Subscription | undefined;
 
   estadoOpcionesHerramientas: Boolean = false;
   estadoOpcionesEmoticones: Boolean = false;
@@ -23,8 +27,19 @@ export class ChatInputDerechaComponenteComponent {
   contenedorOpcionesEmoticonesRef!: ElementRef;
 
   constructor(
-    private iconoService: IconoService
-  ) { }
+    private iconoService: IconoService,
+    private mensajeRapidoSeleccionadoService: MensajeRapidoSeleccionadoService,
+  ) {
+    this.mensajeRapidoSeleccionadoSubscription = this.mensajeRapidoSeleccionadoService.mensajeRapidoSeleccionado$.subscribe(
+      mensaje => {
+        this.inputValueMensaje = mensaje;
+      }
+    );
+  }
+
+  ngOnDestroy(): void {
+    this.mensajeRapidoSeleccionadoSubscription?.unsubscribe();
+  }
 
   toggleEstadoOpcionesHerramientas() {
     this.estadoOpcionesHerramientas = !this.estadoOpcionesHerramientas;
@@ -32,6 +47,13 @@ export class ChatInputDerechaComponenteComponent {
 
   toggleEstadoOpcionesEmoticones() {
     this.estadoOpcionesEmoticones = !this.estadoOpcionesEmoticones;
+  }
+
+  enviarMensaje() {
+    if (this.inputValueMensaje && this.inputValueMensaje.trim() !== '') {
+      console.log('Mensaje enviado:', this.inputValueMensaje);
+      this.inputValueMensaje = '';
+    }
   }
 
   @HostListener('document:click', ['$event'])
