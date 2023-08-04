@@ -1,0 +1,5 @@
+Sidebars
+Paginas
+Opciones
+Componentes
+Tolpit

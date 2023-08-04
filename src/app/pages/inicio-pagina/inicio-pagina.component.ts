@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef, HostListener } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { ToogleSidebarService } from 'src/app/services/toogle-sidebar-servide/toogle-sidebar.service';
 import { ContactoSeleccionadoService } from 'src/app/services/contacto-seleccionado-service/contacto-seleccionado.service';
 @Component({
@@ -6,25 +6,12 @@ import { ContactoSeleccionadoService } from 'src/app/services/contacto-seleccion
   templateUrl: './inicio-pagina.component.html',
   styleUrls: ['./inicio-pagina.component.css']
 })
-export class InicioPaginaComponent implements OnInit {
-
-  @ViewChild('contenedorWhatsappPerfil', { static: true })
-  contenedorWhatsappPerfilRef!: ElementRef<HTMLElement>;
-
-  @ViewChild('contenedorWhatsappIzquierda', { static: true })
-  contenedorWhatsappIzquierdaRef!: ElementRef<HTMLElement>;
-
-  @ViewChild('contenedorWhatsappNuevoChat', { static: true })
-  contenedorWhatsappNuevoChatRef!: ElementRef<HTMLElement>;
+export class InicioPaginaComponent {
 
   constructor(
     private toogleSidebarService: ToogleSidebarService,
     private contactoSeleccionadoService: ContactoSeleccionadoService
   ) { }
-
-  ngOnInit(): void {
-    this.ajustarAnchoContenedorPerfil();
-  }
 
   @HostListener('document:keydown.escape', ['$event'])
   handleKeyboardEvent(event: KeyboardEvent): void {
@@ -42,24 +29,17 @@ export class InicioPaginaComponent implements OnInit {
   obtenerEstadoContenedorWhatsappNuevoChat() {
     return this.toogleSidebarService.obtenerEstadoContenedor(3);
   }
-  
-  existeContactoSeleccionado() {
-      return this.contactoSeleccionadoService.getContactoSeleccionado();
+
+  obtenerEstadoFiltroSidebar() {
+    return this.toogleSidebarService.obtenerEstadoContenedor(4);
   }
 
-  private ajustarAnchoContenedorPerfil() {
-    const contenedorWhatsappIzquierda = this.contenedorWhatsappIzquierdaRef.nativeElement;
-    const contenedorWhatsappPerfil = this.contenedorWhatsappPerfilRef.nativeElement;
-    const contenedorWhatsappNuevoChat = this.contenedorWhatsappNuevoChatRef.nativeElement;
+  obtenerEstadoPlantillasMensajesSidebar() {
+    return this.toogleSidebarService.obtenerEstadoContenedor(5);
+  }
 
-    const actualizarAnchoOpciones = () => {
-      const ancho = getComputedStyle(contenedorWhatsappIzquierda).width;
-      contenedorWhatsappPerfil.style.width = ancho;
-      contenedorWhatsappNuevoChat.style.width = ancho;
-      window.requestAnimationFrame(actualizarAnchoOpciones);
-    };
-
-    actualizarAnchoOpciones();
+  existeContactoSeleccionado() {
+    return this.contactoSeleccionadoService.getContactoSeleccionado();
   }
 
 }

@@ -5,13 +5,25 @@ import { Injectable } from '@angular/core';
 })
 export class ToogleSidebarService {
 
-  private mostrarContenedorValue1 = false;
-  private mostrarContenedorValue2 = false;
-  private mostrarContenedorValue3 = false;
+  private mostrarContenedorValue1 = false;//Buscar Derecha
+  private mostrarContenedorValue2 = false;//Perfil
+  private mostrarContenedorValue3 = false;//Nuevo Chat
+  private mostrarContenedorValue4 = false;//Filtro
+  private mostrarContenedorValue5 = true;//Plantilla Mensajes
 
   constructor() { }
 
+  resetSidebars() {
+    this.mostrarContenedorValue1 = false;
+    this.mostrarContenedorValue2 = false;
+    this.mostrarContenedorValue3 = false;
+    this.mostrarContenedorValue4 = false;
+    this.mostrarContenedorValue5 = false;
+  }
+
   mostrarContenedor(sidebarNumber: number) {
+
+    this.resetSidebars();
 
     switch (sidebarNumber) {
       case 1:
@@ -22,6 +34,12 @@ export class ToogleSidebarService {
         break;
       case 3:
         this.mostrarContenedorValue3 = true;
+        break;
+      case 4:
+        this.mostrarContenedorValue4 = true;
+        break;
+      case 5:
+        this.mostrarContenedorValue5 = true;
         break;
     }
 
@@ -36,6 +54,10 @@ export class ToogleSidebarService {
         this.mostrarContenedorValue2 = false; break;
       case 3:
         this.mostrarContenedorValue3 = false; break;
+      case 4:
+        this.mostrarContenedorValue4 = false; break;
+      case 5:
+        this.mostrarContenedorValue5 = false; break;
     }
 
   }
@@ -49,8 +71,14 @@ export class ToogleSidebarService {
         return this.mostrarContenedorValue2;
       case 3:
         return this.mostrarContenedorValue3;
+      case 4:
+        return this.mostrarContenedorValue4;
+      case 5:
+        return this.mostrarContenedorValue5;
       default:
         return false;
     }
-  }
+
+  }  
+
 }

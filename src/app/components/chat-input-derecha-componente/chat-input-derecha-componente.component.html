@@ -36,7 +36,12 @@
     </li>
 
     <!-- INPUT CHAT -->
-    <li class="chat_input_text"><input type="text" placeholder="Escribe un mensaje aquí."></li>
+    <li class="chat_input_text">
+      <input type="text"
+        placeholder="Escribe un mensaje aquí."
+        [(ngModel)]="inputValueMensaje"
+        (keyup.enter)="enviarMensaje()">
+    </li>
 
     <!-- ICONO AUDIO -->
     <li><i class="icono_primero_principal" [innerHTML]="iconoMicrofono"></i></li>

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { InicioPaginaComponent } from './pages/inicio-pagina/inicio-pagina.component';
@@ -17,6 +17,8 @@ import { MensajeDerechaComponenteComponent } from './components/mensaje-derecha-
 import { ChatInputDerechaComponenteComponent } from './components/chat-input-derecha-componente/chat-input-derecha-componente.component';
 import { PerfilIzquierdaComponenteComponent } from './components/perfil-izquierda-componente/perfil-izquierda-componente.component';
 import { NuevoChatIzquierdaComponenteComponent } from './components/nuevo-chat-izquierda-componente/nuevo-chat-izquierda-componente.component';
+import { FiltroSidebarComponent } from './sidebars/filtro-sidebar/filtro-sidebar.component';
+import { PlantillasMensajesSidebarComponent } from './sidebars/plantillas-mensajes-sidebar/plantillas-mensajes-sidebar.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,11 +35,15 @@ import { NuevoChatIzquierdaComponenteComponent } from './components/nuevo-chat-i
     MensajeDerechaComponenteComponent,
     ChatInputDerechaComponenteComponent,
     PerfilIzquierdaComponenteComponent,
-    NuevoChatIzquierdaComponenteComponent
+    NuevoChatIzquierdaComponenteComponent,
+    FiltroSidebarComponent,
+    PlantillasMensajesSidebarComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

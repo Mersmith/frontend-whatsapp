@@ -5,6 +5,9 @@
         <input type="text" placeholder="Busca un chat o inicia uno nuevo.">
     </div>
 
+    <!-- CONTENEDOR FILTRO COMPLEJO -->
+    <div (click)="toogleFiltroSidebar()"><i class="icono_primero_secundario" [innerHTML]="iconoFiltroComplejo"></i></div>
+
     <!-- CONTENEDOR OPCIONES CHAT -->
     <div #contenedorOpcionesChats class="contenedor_buscar_chat_filtro" (click)="toggleEstadoOpcionesChats()">
         <i class="icono_primero_secundario" [innerHTML]="iconoFiltro"></i>
@@ -33,6 +36,12 @@
                 <li class="contenedor_opciones_subtitulo_no contenedor_opciones_item_hover">
                     <i class="icono_primero_secundario" [innerHTML]="iconoEtiqueta"></i>
                     Importante
+                </li>
+                <li class="contenedor_opciones_subtitulo">Filtros</li>
+                <li class="contenedor_opciones_subtitulo_no contenedor_opciones_item_hover"
+                    (click)="toogleFiltroSidebar()">
+                    <i class="icono_primero_secundario" [innerHTML]="iconoFiltroComplejo"></i>
+                    Exigente
                 </li>
             </ul>
         </div>

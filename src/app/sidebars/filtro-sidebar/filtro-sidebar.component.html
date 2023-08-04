@@ -1,0 +1,68 @@
+<div>
+    <!-- CABECERA -->
+    <div class="contenedor_cabecera_nuevo_chat_izquierda">
+        <i class="icono_primero_principal" (click)="cerrarFiltroSidebar()" [innerHTML]="iconoFiltroComplejo"></i>
+        <span>Filtro</span>
+    </div>
+
+    <div class="cuerpo_filtro_sidebar">
+
+        <!-- BUSCAR -->
+        <div class="item_filtro_sidebar">
+            <div class="contenedor_buscar_chat_input">
+                <i class="icono_primero_secundario" [innerHTML]="iconoBuscar"></i>
+                <input type="text" placeholder="Busca un chat o inicia uno nuevo." [(ngModel)]="value_celular">
+            </div>
+        </div>
+
+        <!-- CARACTERÍSTICA -->
+        <div class="item_filtro_sidebar">
+            <h5>Característica</h5>
+            <div class="item_filtro_flex">
+                <label for="chat_leidos">
+                    <input type="radio" id="chat_leidos" name="filtro_chat" value="0" [(ngModel)]="value_leido"
+                        (change)="buscarNotificacion()" />Todos
+                </label>
+
+                <label for="chat_leidos_no">
+                    <input type="radio" id="chat_leidos_no" name="filtro_chat" value="1" [(ngModel)]="value_leido"
+                        (change)="buscarNotificacion()" />Notificaciones
+                </label>
+            </div>
+        </div>
+
+        <!-- ESTADO -->
+        <div class="item_filtro_sidebar">
+            <h5>Estado:</h5>
+            <div class="item_filtro_flex">
+                <label for="value_estado">
+                    <input type="checkbox" id="value_estado" name="value_estado" [(ngModel)]="value_estado"
+                        (change)="buscarLeido()" />
+                    <ng-container *ngIf="datosFiltroEnviarPadre.estado === 1">Abierto</ng-container>
+                    <ng-container *ngIf="datosFiltroEnviarPadre.estado === 2">Cerrado</ng-container>
+                </label>
+            </div>
+        </div>
+
+        <!-- FECHA -->
+        <div class="item_filtro_sidebar">
+            <h5>Fecha:</h5>
+            <div class="item_filtro_flex">
+                <label for="fecha_inicio">Inicio:
+                    <input type="date" id="fecha_inicio" name="fecha_inicio" [(ngModel)]="value_fecha_inicio" />
+                </label>
+                <label for="fecha_fin">Fin:
+                    <input type="date"  id="fecha_fin" name="fecha_fin" [(ngModel)]="value_fecha_fin" />
+                </label>
+            </div>
+        </div>
+
+        <!-- BOTONES -->
+        <div class="item_filtro_botones">
+            <button (click)="botonBorrarFiltro()" class="boton_cancelar">Borrar</button>
+            <button (click)="botonFiltrar()" class="boton_aceptar">Filtrar</button>
+        </div>
+
+    </div>
+
+</div>
