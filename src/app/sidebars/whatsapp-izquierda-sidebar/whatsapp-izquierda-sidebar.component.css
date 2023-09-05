@@ -1,0 +1,9 @@
+.contenedor_whatsapp_lista_chat_izquierda {
+    position: relative;
+    height: calc(100% - var(--cabecera-top-alto-computadora) - var(--buscador-alto-computadora));
+    overflow-y: auto;
+    overflow-x: hidden;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}

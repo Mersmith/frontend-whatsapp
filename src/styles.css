@@ -159,6 +159,19 @@ input[type=text]::placeholder {
     height: 18px;
 }
 
+.icono_primero_principal_blanco {
+    font-size: var(--size-icono-principal);
+    color: var(--color-icono-principal);
+    cursor: pointer;
+    margin-top: 6px;
+}
+
+.icono_primero_principal_blanco svg {
+    fill: white;
+    width: 22px;
+    height: 22px;
+}
+
 /* CONTENEDOR OPCIONES */
 .contenedor_opciones {
     position: absolute;

@@ -3,12 +3,12 @@ import { ToogleSidebarService } from 'src/app/services/toogle-sidebar-servide/to
 import { IconoService } from 'src/app/services/icono-service/icono.service';
 
 @Component({
-  selector: 'app-buscar-derecha-componente',
-  templateUrl: './buscar-derecha-componente.component.html',
-  styleUrls: ['./buscar-derecha-componente.component.css']
+  selector: 'app-buscar-sidebar',
+  templateUrl: './buscar-sidebar.component.html',
+  styleUrls: ['./buscar-sidebar.component.css']
 })
-export class BuscarDerechaComponenteComponent {
-
+export class BuscarSidebarComponent {
+  
   public iconoCerrar = this.iconoService.IconoCerrar();
 
   constructor(

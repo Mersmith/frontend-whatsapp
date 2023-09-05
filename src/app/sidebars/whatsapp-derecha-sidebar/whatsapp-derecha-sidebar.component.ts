@@ -1,13 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ContactoInteface } from '../../models/contacto-item.model';
 import { ContactoSeleccionadoService } from 'src/app/services/contacto-seleccionado-service/contacto-seleccionado.service';
 
 @Component({
-  selector: 'app-whatsapp-derecha-componente',
-  templateUrl: './whatsapp-derecha-componente.component.html',
-  styleUrls: ['./whatsapp-derecha-componente.component.css']
+  selector: 'app-whatsapp-derecha-sidebar',
+  templateUrl: './whatsapp-derecha-sidebar.component.html',
+  styleUrls: ['./whatsapp-derecha-sidebar.component.css']
 })
-export class WhatsappDerechaComponenteComponent implements OnInit {
+export class WhatsappDerechaSidebarComponent {
 
   contactoSeleccionado: ContactoInteface | null = null;
 

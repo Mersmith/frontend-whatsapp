@@ -26,6 +26,12 @@ ng g s services/mensaje-rapido-seleccionado/mensaje-rapido-seleccionado
 
 ng generate component sidebars/filtro-sidebar
 ng generate component sidebars/plantillas-mensajes-sidebar
+ng generate component sidebars/nuevo-chat-sidebar
+ng generate component sidebars/perfil-sidebar
+ng generate component sidebars/buscar-sidebar
+ng generate component sidebars/what-sidebar
+ng generate component sidebars/whatsapp-izquierda-sidebar
+ng generate component sidebars/whatsapp-derecha-sidebar
 
 npm install date-fns
 npm install date-fns/locale

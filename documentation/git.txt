@@ -92,3 +92,10 @@ git status
 git add .
 git commit -m "Emoticones"
 git push origin Emoticones
+
+git checkout -b Reorganizando_1
+git branch
+git status
+git add .
+git commit -m "Reorganizando 1"
+git push origin Reorganizando_1
