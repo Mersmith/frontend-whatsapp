@@ -26,7 +26,8 @@ import {
   iconoEncuesta,
   iconoSticker,
   iconoTienda,
-  iconoRespuestaRapida
+  iconoRespuestaRapida,
+  iconoRetroceder
 } from 'src/assets/icons';
 
 @Injectable({
@@ -144,6 +145,10 @@ export class IconoService {
 
   public IconoRespuestaRapida() {
     return this.sanitizer.bypassSecurityTrustHtml(iconoRespuestaRapida);
+  }
+  
+  public IconoRetroceder() {
+    return this.sanitizer.bypassSecurityTrustHtml(iconoRetroceder);
   }
 
 }
