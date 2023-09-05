@@ -1,45 +1,76 @@
 <div class="contenedor_whatsapp_chat_input_derecha">
-  <!-- OPCIONES EMOTICONES -->
-  <div
-  class="contenedor_icono_opciones_emoticones"
-  [ngStyle]="{ 
-    'transform': estadoOpcionesEmoticones ? 'translateY(-' + getInputBottomAltoComputadora() + ')' : 'translateY(100%)'}">
-    <div><i>x</i></div>
-    <div><i>x</i></div>
-    <div><i>x</i></div>
-    <div><i>x</i></div>
-  </div>
-  <ul>
 
+  <!-- OPCIONES EMOTICONES -->
+  <div #contenedorOpcionesEmoticones class="contenedor_icono_opciones_emoticones"
+    [ngStyle]="{ 
+    'transform': estadoOpcionesEmoticones ? 'translateY(-' + getInputBottomAltoComputadora() + ')' : 'translateY(100%)'}">
+
+      <div class="cabecera_emoticones">
+        <span *ngIf="emoticonesData['Smileys & People'] && emoticonesData['Smileys & People'].length > 0">{{ emoticonesData['Smileys & People'][0].emoji }}</span>
+        <span *ngIf="emoticonesData['Animals & Nature'] && emoticonesData['Animals & Nature'].length > 0">{{ emoticonesData['Animals & Nature'][0].emoji }}</span>
+        <span *ngIf="emoticonesData['Travel & Places'] && emoticonesData['Travel & Places'].length > 0">{{ emoticonesData['Travel & Places'][0].emoji }}</span>
+        <span *ngIf="emoticonesData['Activities'] && emoticonesData['Activities'].length > 0">{{ emoticonesData['Activities'][0].emoji }}</span>
+        <span *ngIf="emoticonesData['Objects'] && emoticonesData['Objects'].length > 0">{{ emoticonesData['Objects'][0].emoji }}</span>
+        <span *ngIf="emoticonesData['Symbols'] && emoticonesData['Symbols'].length > 0">{{ emoticonesData['Symbols'][0].emoji }}</span>
+        <span *ngIf="emoticonesData['Flags'] && emoticonesData['Flags'].length > 0">{{ emoticonesData['Flags'][0].emoji }}</span>
+      </div>
+
+      <div class="buscar_emoticones">
+        <input type="text" placeholder="Buscar emoji">
+      </div>
+
+      <div class="elementos_emoticones scroll_bar_whatsapp">
+        <div>
+          <span *ngFor="let emoticon of emoticonesData['Smileys & People']" (click)="insertarEmoticon(emoticon.emoji)">{{ emoticon.emoji }}</span>
+        </div>
+        <div>
+          <span *ngFor="let emoticon of emoticonesData['Animals & Nature']" (click)="insertarEmoticon(emoticon.emoji)">{{ emoticon.emoji }}</span>
+        </div>
+        <div>
+          <span *ngFor="let emoticon of emoticonesData['Travel & Places']" (click)="insertarEmoticon(emoticon.emoji)">{{ emoticon.emoji }}</span>
+        </div>
+        <div>
+          <span *ngFor="let emoticon of emoticonesData['Activities']" (click)="insertarEmoticon(emoticon.emoji)">{{ emoticon.emoji }}</span>
+        </div>
+        <div>
+          <span *ngFor="let emoticon of emoticonesData['Objects']" (click)="insertarEmoticon(emoticon.emoji)">{{ emoticon.emoji }}</span>
+        </div>
+        <div>
+          <span *ngFor="let emoticon of emoticonesData['Symbols']" (click)="insertarEmoticon(emoticon.emoji)">{{ emoticon.emoji }}</span>
+        </div>
+        <div>
+          <span *ngFor="let emoticon of emoticonesData['Flags']" (click)="insertarEmoticon(emoticon.emoji)">{{ emoticon.emoji }}</span>
+        </div>
+      </div>
+  </div>
+  
+  <ul>
     <!-- ICONO EMOTICONES -->
-    <li
-      #contenedorOpcionesEmoticones
-      class="chat_input_iconos_item"
-      (click)="toggleEstadoOpcionesEmoticones()">
-      <i class="icono_primero_principal" [innerHTML]="iconoEmoticon"></i>
+    <li class="chat_input_iconos_item">
+      <i class="icono_primero_principal" [innerHTML]="iconoEmoticon" (click)="toggleEstadoOpcionesEmoticones($event)"></i>
     </li>
 
     <!-- ICONO HERRAMIENTAS -->
-    <li
-      #contenedorOpcionesHerramientas
-      class="chat_input_iconos_item"
-      (click)="toggleEstadoOpcionesHerramientas()">
+    <li #contenedorOpcionesHerramientas class="chat_input_iconos_item" (click)="toggleEstadoOpcionesHerramientas()">
       <i class="icono_primero_principal" [innerHTML]="iconoSuma"></i>
       <!-- OPCIONES HERRAMIENTAS -->
       <div class="contenedor_icono_opciones_herramientas"
         [style.display]="estadoOpcionesHerramientas ? 'flex' : 'none'">
-        <div style="background-color: rgb(12, 144, 227);"><i>x</i></div>
-        <div style="background-color: rgb(7, 200, 94);"><i>x</i></div>
-        <div style="background-color: rgb(235, 64, 45);"><i>x</i></div>
-        <div style="background-color: rgb(240, 39, 163);"><i>x</i></div>
+        <div style="background-color: #007bfc"><i class="icono_herramientas" [innerHTML]="iconoImagenes"></i></div>
+        <div style="background-color: #ff2e74"><i class="icono_herramientas" [innerHTML]="iconoCamara"></i></div>
+        <div style="background-color: #009de2"><i class="icono_herramientas" [innerHTML]="iconoContacto"></i></div>
+        <div style="background-color: #7f66ff"><i class="icono_herramientas" [innerHTML]="iconoDocumento"></i></div>
+        <div style="background-color: #ffbc38"><i class="icono_herramientas" [innerHTML]="iconoEncuesta"></i></div>
+        <div style="background-color: #02a698"><i class="icono_herramientas" [innerHTML]="iconoSticker"></i></div>
+        <div style="background-color: #3a5564"><i class="icono_herramientas" [innerHTML]="iconoTienda"></i></div>
+        <div style="background-color: #008069"><i class="icono_herramientas" [innerHTML]="iconoRespuestaRapida"></i>
+        </div>
       </div>
     </li>
 
     <!-- INPUT CHAT -->
     <li class="chat_input_text">
-      <input type="text"
-        placeholder="Escribe un mensaje aquí."
-        [(ngModel)]="inputValueMensaje"
+      <input #inputChat type="text" placeholder="Escribe un mensaje aquí." [(ngModel)]="inputValueMensaje"
         (keyup.enter)="enviarMensaje()">
     </li>
 

@@ -44,4 +44,9 @@ export const mensajesRapidosItems = [
         "tipo": "Promoción",
         "texto": "Revise nuestras promocinoes en www.villasalud.pe/promociones",
     },
+    {
+        "id": "119",
+        "tipo": "Promoción",
+        "texto": "😁 😂 😃 😄 😅 😆",
+    },
 ]
