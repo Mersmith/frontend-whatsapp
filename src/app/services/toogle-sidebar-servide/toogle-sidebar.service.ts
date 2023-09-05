@@ -9,7 +9,7 @@ export class ToogleSidebarService {
   private mostrarContenedorValue2 = false;//Perfil
   private mostrarContenedorValue3 = false;//Nuevo Chat
   private mostrarContenedorValue4 = false;//Filtro
-  private mostrarContenedorValue5 = true;//Plantilla Mensajes
+  private mostrarContenedorValue5 = false;//Plantilla Mensajes
 
   constructor() { }
 

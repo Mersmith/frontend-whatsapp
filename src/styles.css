@@ -147,6 +147,18 @@ input[type=text]::placeholder {
     fill: #fb0000;
 }
 
+.icono_herramientas{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icono_herramientas svg{
+    fill: white;
+    width: 18px;
+    height: 18px;
+}
+
 /* CONTENEDOR OPCIONES */
 .contenedor_opciones {
     position: absolute;

@@ -93,3 +93,11 @@
   background: var(--background-color-amigo-mensaje);
   text-align: left;
 }
+
+@media (max-width: 800px) {
+
+  .contenedor_whatsapp_caja_mensajes_derecha {
+    padding: 20px 20px;
+  }
+
+}

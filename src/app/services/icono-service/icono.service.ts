@@ -19,7 +19,14 @@ import {
   iconoCheck,
   iconoCheckDoble,
   iconoFiltroComplejo,
-  iconoChatLista
+  iconoChatLista,
+  iconoImagenes,
+  iconoCamara,
+  iconoDocumento,
+  iconoEncuesta,
+  iconoSticker,
+  iconoTienda,
+  iconoRespuestaRapida
 } from 'src/assets/icons';
 
 @Injectable({
@@ -109,6 +116,34 @@ export class IconoService {
 
   public IconoChatLista() {
     return this.sanitizer.bypassSecurityTrustHtml(iconoChatLista);
+  }
+
+  public IconoImagenes() {
+    return this.sanitizer.bypassSecurityTrustHtml(iconoImagenes);
+  }
+
+  public IconoCamara() {
+    return this.sanitizer.bypassSecurityTrustHtml(iconoCamara);
+  }
+
+  public IconoDocumento() {
+    return this.sanitizer.bypassSecurityTrustHtml(iconoDocumento);
+  }
+
+  public IconoEncuesta() {
+    return this.sanitizer.bypassSecurityTrustHtml(iconoEncuesta);
+  }
+
+  public IconoSticker() {
+    return this.sanitizer.bypassSecurityTrustHtml(iconoSticker);
+  }
+
+  public IconoTienda() {
+    return this.sanitizer.bypassSecurityTrustHtml(iconoTienda);
+  }
+
+  public IconoRespuestaRapida() {
+    return this.sanitizer.bypassSecurityTrustHtml(iconoRespuestaRapida);
   }
 
 }
