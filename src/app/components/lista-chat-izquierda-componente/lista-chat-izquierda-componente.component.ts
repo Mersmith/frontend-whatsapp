@@ -5,6 +5,7 @@ import { formatDistanceToNow, format } from 'date-fns';
 import { es } from 'date-fns/locale';
 import { ChatService } from 'src/app/services/chat-service/chat.service';
 import { IconoService } from 'src/app/services/icono-service/icono.service';
+import { SesionService } from 'src/app/services/sesion/sesion.service';
 
 @Component({
   selector: 'app-lista-chat-izquierda-componente',
@@ -22,16 +23,30 @@ export class ListaChatIzquierdaComponenteComponent implements OnInit {
   constructor(
     private contactoSeleccionadoService: ContactoSeleccionadoService,
     private chatService: ChatService,
-    private iconoService: IconoService
+    private iconoService: IconoService,
+    private sesionService: SesionService
   ) { }
 
   ngOnInit(): void {
-    this.contactoItems = this.chatService.getMisSalas();
+    if(this.sesionService.isAuthenticatedUser()){
+      this.contactoItems = this.chatService.getMisSalas();
+    }
   }
 
   seleccionarContacto(contacto: ContactoInteface): void {
     this.contactoSeleccionadoService.setContactoSeleccionado(contacto);
     this.contactoSeleccionado = contacto;
+    this.formatearContactoListaNotificacion(contacto.number);
+  }
+
+  formatearContactoListaNotificacion(numero_destinatario: string) {
+    const contactoItems = this.chatService.getMisSalas();
+
+    const selectedItem = contactoItems.find((item) => item.number === numero_destinatario);
+
+    if (selectedItem) {
+      selectedItem.notification = 0;
+    }
   }
 
   formatearFechaRecien(updatedat: string): string {

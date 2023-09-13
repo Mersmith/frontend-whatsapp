@@ -3,6 +3,7 @@
     width: 100%;
     height: var(--input-bottom-alto-computadora);
     display: flex;
+    z-index: 2;
 }
 
 ul {
@@ -20,13 +21,15 @@ ul {
     width: 100%;
 }
 
-input[type=text] {
+input[type=text],
+textarea {
     background-color: var(--background-color-secundario);
     width: 100%;
     padding: 10px 20px;
 }
 
-input[type=text]::placeholder {
+input[type=text]::placeholder,
+textarea::placeholder {
     font-size: 14px;
 }
 
@@ -36,6 +39,7 @@ input[type=text]::placeholder {
 
 /* EMOTICIONES */
 .contenedor_icono_opciones_emoticones {
+    display: none;
     position: absolute;
     overflow: visible;
     bottom: 0px;
@@ -61,7 +65,8 @@ input[type=text]::placeholder {
 
 .elementos_emoticones {
     height: 300px;
-    overflow-y: auto;
+    overflow-y: scroll;
+    overflow-x: hidden;
     padding: 2px 10px;
 }
 

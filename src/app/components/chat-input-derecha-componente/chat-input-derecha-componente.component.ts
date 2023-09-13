@@ -4,6 +4,9 @@ import { MensajeRapidoSeleccionadoService } from 'src/app/services/mensaje-rapid
 import { Subscription } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Emoticon } from 'src/app/models/emoticon-item.model';
+import { ContactoSeleccionadoService } from 'src/app/services/contacto-seleccionado-service/contacto-seleccionado.service';
+import { SesionService } from 'src/app/services/sesion/sesion.service';
+import { ChatService } from 'src/app/services/chat-service/chat.service';
 
 @Component({
   selector: 'app-chat-input-derecha-componente',
@@ -45,11 +48,15 @@ export class ChatInputDerechaComponenteComponent implements OnInit, OnDestroy {
   constructor(
     private iconoService: IconoService,
     private mensajeRapidoSeleccionadoService: MensajeRapidoSeleccionadoService,
-    private http: HttpClient
+    private contactoSeleccionadoService: ContactoSeleccionadoService,
+    private http: HttpClient,
+    private sesionService: SesionService,
+    private chatService: ChatService
   ) {
     this.mensajeRapidoSeleccionadoSubscription = this.mensajeRapidoSeleccionadoService.mensajeRapidoSeleccionado$.subscribe(
       mensaje => {
-        this.inputValueMensaje = mensaje;
+        this.inputValueMensaje += mensaje;
+        this.inputChatRef.nativeElement.focus();
       }
     );
   }
@@ -67,24 +74,88 @@ export class ChatInputDerechaComponenteComponent implements OnInit, OnDestroy {
 
   toggleEstadoOpcionesHerramientas() {
     this.estadoOpcionesHerramientas = !this.estadoOpcionesHerramientas;
+    this.estadoOpcionesEmoticones = false;
   }
 
   toggleEstadoOpcionesEmoticones(event: Event) {
     event.stopPropagation();
     this.estadoOpcionesEmoticones = !this.estadoOpcionesEmoticones;
+    this.estadoOpcionesHerramientas = false;
+    setTimeout(() => {
+      this.contenedorOpcionesEmoticonesRef.nativeElement.style.display = this.estadoOpcionesEmoticones ? 'block' : 'none';
+    }, 100);
+
+    setTimeout(() => {
+      this.contenedorOpcionesEmoticonesRef.nativeElement.style.transform = this.estadoOpcionesEmoticones ? 'translateY(-' + this.getInputBottomAltoComputadora() + ')' : 'translateY(100%)';
+    }, 100);
   }
 
   insertarEmoticon(emoticon: string) {
     this.inputValueMensaje += emoticon;
     this.inputChatRef.nativeElement.focus();
-    //seleccionar el input
+  }
+
+  resetInputChat() {
+    this.inputValueMensaje = '';
+    this.inputChatRef.nativeElement.focus();
   }
 
   enviarMensaje() {
-    if (this.inputValueMensaje && this.inputValueMensaje.trim() !== '') {
-      console.log('Mensaje enviado:', this.inputValueMensaje);
-      this.inputValueMensaje = '';
+    const numero_destinatario = this.contactoSeleccionadoService.getContactoSeleccionado()?.number;
+    const usuario_sesion = this.sesionService.getUserData();
+
+    if (this.inputValueMensaje && this.inputValueMensaje.trim() !== '' && usuario_sesion && numero_destinatario) {
+
+      const formatNombresSesion = this.formatearMayuculaMiniscula(usuario_sesion.nombres);
+
+      const enviarChat: any = {
+        content: {
+          body: `*${formatNombresSesion}:* ${this.inputValueMensaje}`
+        },
+        timestamp: Math.floor(new Date().getTime() / 1000).toString(),
+        type: 'text',
+        envio: 1,
+        excel_id: null,
+        context: null,
+        id_type_message: 4,
+        id_template: null,
+        number: numero_destinatario,
+        read: null,
+        sent: 1,
+        wamid: Math.floor(new Date().getTime() / 1000).toString(),
+      }
+
+      this.formatearContactoListaPrimero(numero_destinatario);
+
+      console.log(enviarChat);
+
+      this.resetInputChat();
     }
+  }
+
+  formatearContactoListaPrimero(numero_destinatario: string) {
+    const contactoItems = this.chatService.getMisSalas();
+
+    const selectedItem = contactoItems.find((item) => item.number === numero_destinatario);
+
+    if (selectedItem) {
+      selectedItem.notification = 0;
+
+      const index = contactoItems.indexOf(selectedItem);
+      if (index !== -1) {
+        contactoItems.splice(index, 1);
+      }
+
+      contactoItems.unshift(selectedItem);
+    }
+  }
+
+  formatearMayuculaMiniscula(nombre: string): string {
+    return nombre
+      .toLowerCase()
+      .split(' ')
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(' ');
   }
 
   @HostListener('document:click', ['$event'])
@@ -95,6 +166,8 @@ export class ChatInputDerechaComponenteComponent implements OnInit, OnDestroy {
 
     if (!this.contenedorOpcionesEmoticonesRef.nativeElement.contains(event.target)) {
       this.estadoOpcionesEmoticones = false;
+      this.contenedorOpcionesEmoticonesRef.nativeElement.style.display = 'none';
+      this.contenedorOpcionesEmoticonesRef.nativeElement.style.transform = 'translateY(100%)';
     }
   }
 

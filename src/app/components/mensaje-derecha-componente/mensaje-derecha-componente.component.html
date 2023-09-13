@@ -1,4 +1,4 @@
-<div [id]="mensaje.wamid">
+<div [id]="mensaje.wamid" class="contenedor_mensaje_solo">
     <!-- CONTEXT MENSAJE -->
     <!-- TIPO STICKER -->
     <ng-container *ngIf="mensaje.context">
@@ -12,11 +12,11 @@
     <ng-container *ngIf="mensajeRespuesta">
         <a href="javascript:void(0)" (click)="scrollMensajeContexto(mensaje.context)">
             <div [ngClass]="{
-        'contenedor_mensaje_respuesta': true, 
+        'contenedor_mensaje_respuesta': true,
         'amigo_mensaje_contenedor_mensaje_respuesta': mensaje.envio === 0,
         'mi_mensaje_contenedor_mensaje_respuesta': mensaje.envio === 1,
-        'mi_respuesta': mensaje.respondidoPor === 'Tú', 
-        'amigo_respuesta': mensaje.respondidoPor !== 'Tú'        
+        'mi_respuesta': mensaje.respondidoPor === 'Tú',
+        'amigo_respuesta': mensaje.respondidoPor !== 'Tú'
         }" *ngIf="mensaje.respondidoPor">
                 <span>{{ mensaje.respondidoPor }}</span>
                 <div class="contenido_mensaje_respuesta">

@@ -1,6 +1,7 @@
 import { Component, Input, OnChanges, SimpleChanges, ElementRef, ViewChild, AfterViewInit, OnDestroy } from '@angular/core';
 import { ContactoInteface } from '../../models/contacto-item.model';
 import { ChatService } from 'src/app/services/chat-service/chat.service';
+import { Renderer2 } from '@angular/core';
 
 @Component({
   selector: 'app-caja-mensajes-derecha-componente',
@@ -18,25 +19,17 @@ export class CajaMensajesDerechaComponenteComponent implements OnChanges, AfterV
 
   constructor(
     private chatService: ChatService,
+    private renderer: Renderer2
   ) { }
 
   ngOnChanges(changes: SimpleChanges) {
     this.chatService.dejarSalaPorContacto(changes['contactoSeleccionado'].previousValue);
 
     if (this.contactoSeleccionado?.number) {
-
-      const numeroContacto = this.contactoSeleccionado.number;
-      this.mensajes = this.chatService.getMensajesPorContacto(numeroContacto);
-
-      if (this.mensajes) {
-        this.verificarPropietarioMensajeRespuesta();
-        this.scrollToBottom();
-      }
-
+      this.traer_mensajes(this.contactoSeleccionado.number);
       this.chatService.unirseSalaPorContacto(this.contactoSeleccionado);
 
     }
-
   }
 
   ngAfterViewInit() {
@@ -49,6 +42,19 @@ export class CajaMensajesDerechaComponenteComponent implements OnChanges, AfterV
   ngOnDestroy() {
     if (this.contactoSeleccionado) {
       this.chatService.dejarSalaPorContacto(this.contactoSeleccionado);
+    }
+  }
+
+  traer_mensajes(numeroContacto: any) {
+    this.mensajes = this.chatService.getMensajesPorContacto(numeroContacto);
+
+    setTimeout(() => {
+      this.scrollToBottom();
+      this.renderer.setStyle(this.mensaje_contenedor.nativeElement, 'overflowY', 'scroll');
+    }, 1);
+
+    if (this.mensajes) {
+      this.verificarPropietarioMensajeRespuesta();
     }
   }
 

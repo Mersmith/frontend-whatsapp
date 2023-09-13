@@ -3,7 +3,8 @@
   /*width: 100%;*/
   height: calc(100% - var(--cabecera-top-alto-computadora) - var(--input-bottom-alto-computadora));
   padding: 20px 50px;
-  overflow-y: scroll;
+  overflow-y: hidden;
+  overflow-x: hidden;
   display: flex;
   flex-direction: column;
 }
