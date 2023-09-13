@@ -1,3 +1,8 @@
+.contenedor_mensaje_solo p {
+    overflow-wrap: anywhere;
+    white-space: pre-wrap;
+}
+
 /* CONTENIDO MENSAJE */
 span {
     margin-top: 5px;
@@ -48,17 +53,17 @@ span {
 }
 
 /* ESTILOS MULTIMEDIA */
-.imagen_mensaje{
+.imagen_mensaje {
     /*width: 100px;*/
     height: 100px;
 }
 
-.video_mensaje{
+.video_mensaje {
     /*width: 100px;*/
     height: 100px;
 }
 
-.audio_mensaje{
+.audio_mensaje {
     /*width: 100px;*/
     height: 100px;
 }

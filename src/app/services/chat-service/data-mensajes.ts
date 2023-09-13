@@ -611,7 +611,7 @@ export const mensaje_51976017966 = [
         "context": "wamid.HBgLNTE5NzYwMTc5NjYVAgARGBJBNDE5OENCNTUzMzBCQTA5MUEA545633",
         "wamid": "wamid.HBgLNTE5NzYwMTc5NjYVAgARGBJBNDE5OENCNTUzMzBCQTA5MUEAGFDGFD",
         "type": "text",
-        "content": "Disculpe no es el estómago. Son los riñones.",
+        "content": "https://villasalud-my.sharepoint.com/:x:/r/personal/jmunoz_villasalud_pe/_layouts/15/doc2.aspx?sourcedoc=%7B332800e6-86cf-4658-817e-2",
         "sent": 2,
         "id_template": null,
         "excel_id": null,
@@ -637,7 +637,7 @@ export const mensaje_51976017966 = [
         "excel_id": null,
         "envio": 1,
         "mensaje_respuesta": {
-            "body": "Disculpe no es el estómago. Son los riñones."
+            "body": "https://villasalud-my.sharepoint.com/:x:/r/personal/jmunoz_villasalud_pe/_layouts/15/doc2.aspx?sourcedoc=%7B332800e6-86cf-4658-817e-2"
         },
         "mensaje_respuesta_type": "text",
         "number_recipient": "51976017966",

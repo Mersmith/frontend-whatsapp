@@ -23,6 +23,8 @@ ng generate service services/ToogleOpciones
 ng g s services/chat-service/chat
 ng g s services/icono-service/icono
 ng g s services/mensaje-rapido-seleccionado/mensaje-rapido-seleccionado
+ng g s services/sesion/sesion
+ng g s services/lista-contactos-chat/lista-contactos-chat
 
 ng generate component sidebars/filtro-sidebar
 ng generate component sidebars/plantillas-mensajes-sidebar

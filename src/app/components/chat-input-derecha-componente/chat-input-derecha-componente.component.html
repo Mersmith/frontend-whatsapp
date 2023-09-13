@@ -1,9 +1,7 @@
 <div class="contenedor_whatsapp_chat_input_derecha">
 
   <!-- OPCIONES EMOTICONES -->
-  <div #contenedorOpcionesEmoticones class="contenedor_icono_opciones_emoticones"
-    [ngStyle]="{ 
-    'transform': estadoOpcionesEmoticones ? 'translateY(-' + getInputBottomAltoComputadora() + ')' : 'translateY(100%)'}">
+  <div #contenedorOpcionesEmoticones class="contenedor_icono_opciones_emoticones">
 
       <div class="cabecera_emoticones">
         <span *ngIf="emoticonesData['Smileys & People'] && emoticonesData['Smileys & People'].length > 0">{{ emoticonesData['Smileys & People'][0].emoji }}</span>
