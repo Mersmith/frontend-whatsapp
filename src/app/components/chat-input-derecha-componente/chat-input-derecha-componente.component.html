@@ -1,46 +1,45 @@
-<div class="contenedor_whatsapp_chat_input_derecha">
-
-  <!-- OPCIONES EMOTICONES -->
-  <div #contenedorOpcionesEmoticones class="contenedor_icono_opciones_emoticones">
-
-      <div class="cabecera_emoticones">
-        <span *ngIf="emoticonesData['Smileys & People'] && emoticonesData['Smileys & People'].length > 0">{{ emoticonesData['Smileys & People'][0].emoji }}</span>
-        <span *ngIf="emoticonesData['Animals & Nature'] && emoticonesData['Animals & Nature'].length > 0">{{ emoticonesData['Animals & Nature'][0].emoji }}</span>
-        <span *ngIf="emoticonesData['Travel & Places'] && emoticonesData['Travel & Places'].length > 0">{{ emoticonesData['Travel & Places'][0].emoji }}</span>
-        <span *ngIf="emoticonesData['Activities'] && emoticonesData['Activities'].length > 0">{{ emoticonesData['Activities'][0].emoji }}</span>
-        <span *ngIf="emoticonesData['Objects'] && emoticonesData['Objects'].length > 0">{{ emoticonesData['Objects'][0].emoji }}</span>
-        <span *ngIf="emoticonesData['Symbols'] && emoticonesData['Symbols'].length > 0">{{ emoticonesData['Symbols'][0].emoji }}</span>
-        <span *ngIf="emoticonesData['Flags'] && emoticonesData['Flags'].length > 0">{{ emoticonesData['Flags'][0].emoji }}</span>
-      </div>
-
-      <div class="buscar_emoticones">
-        <input type="text" placeholder="Buscar emoji">
-      </div>
-
-      <div class="elementos_emoticones scroll_bar_whatsapp">
-        <div>
-          <span *ngFor="let emoticon of emoticonesData['Smileys & People']" (click)="insertarEmoticon(emoticon.emoji)">{{ emoticon.emoji }}</span>
-        </div>
-        <div>
-          <span *ngFor="let emoticon of emoticonesData['Animals & Nature']" (click)="insertarEmoticon(emoticon.emoji)">{{ emoticon.emoji }}</span>
-        </div>
-        <div>
-          <span *ngFor="let emoticon of emoticonesData['Travel & Places']" (click)="insertarEmoticon(emoticon.emoji)">{{ emoticon.emoji }}</span>
-        </div>
-        <div>
-          <span *ngFor="let emoticon of emoticonesData['Activities']" (click)="insertarEmoticon(emoticon.emoji)">{{ emoticon.emoji }}</span>
-        </div>
-        <div>
-          <span *ngFor="let emoticon of emoticonesData['Objects']" (click)="insertarEmoticon(emoticon.emoji)">{{ emoticon.emoji }}</span>
-        </div>
-        <div>
-          <span *ngFor="let emoticon of emoticonesData['Symbols']" (click)="insertarEmoticon(emoticon.emoji)">{{ emoticon.emoji }}</span>
-        </div>
-        <div>
-          <span *ngFor="let emoticon of emoticonesData['Flags']" (click)="insertarEmoticon(emoticon.emoji)">{{ emoticon.emoji }}</span>
-        </div>
-      </div>
+ <!-- OPCIONES EMOTICONES -->
+ <div #contenedorOpcionesEmoticones class="contenedor_icono_opciones_emoticones">
+  <div class="cabecera_emoticones">
+    <span *ngIf="emoticonesData['Smileys & People'] && emoticonesData['Smileys & People'].length > 0">{{ emoticonesData['Smileys & People'][0].emoji }}</span>
+    <span *ngIf="emoticonesData['Animals & Nature'] && emoticonesData['Animals & Nature'].length > 0">{{ emoticonesData['Animals & Nature'][0].emoji }}</span>
+    <span *ngIf="emoticonesData['Travel & Places'] && emoticonesData['Travel & Places'].length > 0">{{ emoticonesData['Travel & Places'][0].emoji }}</span>
+    <span *ngIf="emoticonesData['Activities'] && emoticonesData['Activities'].length > 0">{{ emoticonesData['Activities'][0].emoji }}</span>
+    <span *ngIf="emoticonesData['Objects'] && emoticonesData['Objects'].length > 0">{{ emoticonesData['Objects'][0].emoji }}</span>
+    <span *ngIf="emoticonesData['Symbols'] && emoticonesData['Symbols'].length > 0">{{ emoticonesData['Symbols'][0].emoji }}</span>
+    <span *ngIf="emoticonesData['Flags'] && emoticonesData['Flags'].length > 0">{{ emoticonesData['Flags'][0].emoji }}</span>
   </div>
+
+  <div class="buscar_emoticones">
+    <input type="text" placeholder="Buscar emoji">
+  </div>
+
+  <div class="elementos_emoticones scroll_bar_whatsapp">
+    <div>
+      <span *ngFor="let emoticon of emoticonesData['Smileys & People']" (click)="insertarEmoticon(emoticon.emoji)">{{ emoticon.emoji }}</span>
+    </div>
+    <div>
+      <span *ngFor="let emoticon of emoticonesData['Animals & Nature']" (click)="insertarEmoticon(emoticon.emoji)">{{ emoticon.emoji }}</span>
+    </div>
+    <div>
+      <span *ngFor="let emoticon of emoticonesData['Travel & Places']" (click)="insertarEmoticon(emoticon.emoji)">{{ emoticon.emoji }}</span>
+    </div>
+    <div>
+      <span *ngFor="let emoticon of emoticonesData['Activities']" (click)="insertarEmoticon(emoticon.emoji)">{{ emoticon.emoji }}</span>
+    </div>
+    <div>
+      <span *ngFor="let emoticon of emoticonesData['Objects']" (click)="insertarEmoticon(emoticon.emoji)">{{ emoticon.emoji }}</span>
+    </div>
+    <div>
+      <span *ngFor="let emoticon of emoticonesData['Symbols']" (click)="insertarEmoticon(emoticon.emoji)">{{ emoticon.emoji }}</span>
+    </div>
+    <div>
+      <span *ngFor="let emoticon of emoticonesData['Flags']" (click)="insertarEmoticon(emoticon.emoji)">{{ emoticon.emoji }}</span>
+    </div>
+  </div>
+</div>
+
+<div class="contenedor_whatsapp_chat_input_derecha">
   
   <ul>
     <!-- ICONO EMOTICONES -->
@@ -68,8 +67,15 @@
 
     <!-- INPUT CHAT -->
     <li class="chat_input_text">
-      <input #inputChat type="text" placeholder="Escribe un mensaje aquí." [(ngModel)]="inputValueMensaje"
+      <div
+        #inputChat
+        contenteditable="true"
+        class="caja_input_mensaje scroll_bar_whatsapp"
+        [textContent]="inputValueMensaje"
+        (input)="onInput($event)"
+        (keydown)="detectarShiftEnter($event)"
         (keyup.enter)="enviarMensaje()">
+      </div>
     </li>
 
     <!-- ICONO AUDIO -->

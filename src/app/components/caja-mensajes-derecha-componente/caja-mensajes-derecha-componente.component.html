@@ -1,36 +1,43 @@
-<div  #mensaje_contenedor class="contenedor_whatsapp_caja_mensajes_derecha scroll_bar_whatsapp">
-    <ng-container *ngIf="mensajes && mensajes.length > 0; else noMensajes">
+<div class="chupetin">
+    <div class="ga1">
+        <div #mensaje_contenedor class="contenedor_whatsapp_caja_mensajes_derecha scroll_bar_whatsapp">
+            <ng-container *ngIf="mensajes && mensajes.length > 0; else noMensajes">
 
-        <!-- MENSAJES -->
-        <ng-container *ngFor="let mensaje of mensajes">
+                <!-- MENSAJES -->
+                <ng-container *ngFor="let mensaje of mensajes">
 
-            <!-- FECHA -->
-            <div *ngIf="mensaje.id_fecha == 1" [ngClass]="{
+                    <!-- FECHA -->
+                    <div *ngIf="mensaje.id_fecha == 1" [ngClass]="{
             'whatsapp_mensaje_fechas': true
           }">
-                {{mensaje.fecha | date:'dd/MM/YYYY'}}
-            </div>
+                        {{mensaje.fecha | date:'dd/MM/YYYY'}}
+                    </div>
 
-            <!-- MENSAJE -->
-            <div [ngClass]="{
+                    <!-- MENSAJE -->
+                    <div [ngClass]="{
                 'whatsapp_mensaje': true,
                 'amigo_mensaje': mensaje.envio === 0,
                 'mi_mensaje': mensaje.envio === 1,
                 'mensaje_respondido': mensaje.respondidoPor}" [id]="mensaje.wamid">
 
-                <div class="contenedor_mensaje">
-                    <!-- MENSAJE SOLO -->
-                    <app-mensaje-derecha-componente [mensaje]="mensaje"
-                        [mensajeRespuesta]="mensaje.respondidoPor ? true : false"></app-mensaje-derecha-componente>
-                </div>
+                        <div class="contenedor_mensaje">
+                            <!-- MENSAJE SOLO -->
+                            <app-mensaje-derecha-componente [mensaje]="mensaje"
+                                [mensajeRespuesta]="mensaje.respondidoPor ? true : false"></app-mensaje-derecha-componente>
+                        </div>
 
-            </div>
+                    </div>
 
-        </ng-container>
+                </ng-container>
 
-    </ng-container>
+            </ng-container>
 
-    <ng-template #noMensajes>
-        
-    </ng-template>
+            <ng-template #noMensajes>
+
+            </ng-template>
+        </div>
+    </div>
+    
+    <!-- INPUT DERECHA -->
+    <app-chat-input-derecha-componente class="ga2"></app-chat-input-derecha-componente>
 </div>

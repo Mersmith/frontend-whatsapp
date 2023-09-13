@@ -106,3 +106,10 @@ git status
 git add .
 git commit -m "Reorganizando 2"
 git push origin Reorganizando_2
+
+git checkout -b Chat_Input_2
+git branch
+git status
+git add .
+git commit -m "Chat_Input 2"
+git push origin Chat_Input_2
