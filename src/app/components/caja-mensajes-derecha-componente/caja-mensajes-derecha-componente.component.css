@@ -1,7 +1,31 @@
-.contenedor_whatsapp_caja_mensajes_derecha {
+.chupetin{
+  display: flex;
+  flex-direction: column;
+  height: calc(100% - 60px);
+}
+
+.ga1{
   position: relative;
+  z-index: 1;
+  flex: 1 1;
+  order: 1;
+
+}
+
+.ga2{
+  position: relative;
+  z-index: 2;
+  box-sizing: border-box;
+  flex: none;
+  order: 2;
+  width: 100%;
+  min-height: 60px;
+}
+
+.contenedor_whatsapp_caja_mensajes_derecha {
+  position: absolute;
   /*width: 100%;*/
-  height: calc(100% - var(--cabecera-top-alto-computadora) - var(--input-bottom-alto-computadora));
+  height: 100%;
   padding: 20px 50px;
   overflow-y: hidden;
   overflow-x: hidden;

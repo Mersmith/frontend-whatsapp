@@ -57,6 +57,7 @@ export class ChatInputDerechaComponenteComponent implements OnInit, OnDestroy {
       mensaje => {
         this.inputValueMensaje += mensaje;
         this.inputChatRef.nativeElement.focus();
+        this.moverCursorAlFinal();
       }
     );
   }
@@ -86,18 +87,43 @@ export class ChatInputDerechaComponenteComponent implements OnInit, OnDestroy {
     }, 100);
 
     setTimeout(() => {
-      this.contenedorOpcionesEmoticonesRef.nativeElement.style.transform = this.estadoOpcionesEmoticones ? 'translateY(-' + this.getInputBottomAltoComputadora() + ')' : 'translateY(100%)';
+      this.contenedorOpcionesEmoticonesRef.nativeElement.style.transform = this.estadoOpcionesEmoticones ? 'translateY(-100%)' : 'translateY(100%)';
     }, 100);
   }
 
   insertarEmoticon(emoticon: string) {
     this.inputValueMensaje += emoticon;
     this.inputChatRef.nativeElement.focus();
+    this.moverCursorAlFinal();
   }
 
   resetInputChat() {
     this.inputValueMensaje = '';
     this.inputChatRef.nativeElement.focus();
+  }
+
+  onInput(event: any) {
+    this.inputValueMensaje = event.target.textContent || '';
+  }
+
+  detectarShiftEnter(event: KeyboardEvent) {
+    if (event.shiftKey && event.key === 'Enter') {
+      this.moverCursorAlFinal();
+    }
+  }
+
+  moverCursorAlFinal() {
+    setTimeout(() => {
+      const range = document.createRange();
+      const sel = window.getSelection();
+      range.selectNodeContents(this.inputChatRef.nativeElement);
+      range.collapse(false);
+
+      if (sel !== null) {
+        sel.removeAllRanges();
+        sel.addRange(range);
+      }
+    }, 0);
   }
 
   enviarMensaje() {
