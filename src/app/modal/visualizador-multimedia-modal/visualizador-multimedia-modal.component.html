@@ -1,0 +1,32 @@
+<div class="contenedor_motivo_pausar_chat_modal">
+
+    <div class="modal_cabecera">
+        <i class="icono_primero_principal" (click)="cerrarVisualizadorMultimediaModal()" [innerHTML]="iconoCerrar"></i>
+    </div>
+
+    <div class="modal_cuerpo">
+
+        <div class="contenedor_multimedia">
+
+            <!-- TIPO IMAGE -->
+            <ng-container *ngIf="tipoMensaje === 'image'">
+                <img [src]="multimediaMensaje.content" class="imagen_mensaje">
+            </ng-container>
+
+            <!-- TIPO VIDEO -->
+            <ng-container *ngIf="tipoMensaje === 'video'">
+                <video preload="auto" class="video_mensaje" controls>
+                    <source [src]="multimediaMensaje.content" />
+                </video>
+            </ng-container>
+
+            <!-- TIPO STICKER -->
+            <ng-container *ngIf="tipoMensaje === 'sticker'">
+                <img [src]="multimediaMensaje.content" class="imagen_mensaje">
+            </ng-container>
+
+        </div>
+
+    </div>
+
+</div>

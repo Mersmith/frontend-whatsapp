@@ -1,9 +1,32 @@
 .contenedor_whatsapp_caja_mensajes_derecha {
-    position: relative;
-    width: 100%;
-    height: calc(100% - 120px);
-    padding: 20px 50px;
-    overflow-y: auto;
-    display: flex;
-    flex-direction: column;
-  }
+  position: relative;
+  width: 100%;
+  height: calc(100% - 120px);
+  padding: 20px 50px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.contenedor_caja_mensajes_input {
+  display: flex;
+  flex-direction: column;
+  height: calc(100% - 60px);
+}
+
+.contenedor_caja_mensajes {
+  position: relative;
+  z-index: 1;
+  flex: 1 1;
+  order: 1;
+}
+
+.contenedor_input_chat {
+  position: relative;
+  z-index: 2;
+  box-sizing: border-box;
+  flex: none;
+  order: 2;
+  width: 100%;
+  min-height: 60px;
+}

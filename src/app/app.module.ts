@@ -20,6 +20,8 @@ import { PerfilSidebarComponent } from './sidebars/perfil-sidebar/perfil-sidebar
 import { BuscarSidebarComponent } from './sidebars/buscar-sidebar/buscar-sidebar.component';
 import { WhatsappIzquierdaSidebarComponent } from './sidebars/whatsapp-izquierda-sidebar/whatsapp-izquierda-sidebar.component';
 import { WhatsappDerechaSidebarComponent } from './sidebars/whatsapp-derecha-sidebar/whatsapp-derecha-sidebar.component';
+import { MotivoPausarChatModalComponent } from './modal/motivo-pausar-chat-modal/motivo-pausar-chat-modal.component';
+import { VisualizadorMultimediaModalComponent } from './modal/visualizador-multimedia-modal/visualizador-multimedia-modal.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,7 +40,9 @@ import { WhatsappDerechaSidebarComponent } from './sidebars/whatsapp-derecha-sid
     PerfilSidebarComponent,
     BuscarSidebarComponent,
     WhatsappIzquierdaSidebarComponent,
-    WhatsappDerechaSidebarComponent
+    WhatsappDerechaSidebarComponent,
+    MotivoPausarChatModalComponent,
+    VisualizadorMultimediaModalComponent
   ],
   imports: [
     BrowserModule,

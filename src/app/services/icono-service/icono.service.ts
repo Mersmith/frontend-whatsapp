@@ -27,7 +27,18 @@ import {
   iconoSticker,
   iconoTienda,
   iconoRespuestaRapida,
-  iconoRetroceder
+  iconoRetroceder,
+  iconoHora,
+  iconoHoraActivo,
+  iconoPausa,
+  iconoPlay,
+  iconoDocumentoAudio,
+  iconoDocumentoComprimido,
+  iconoDocumentoExcel,
+  iconoDocumentoMp3,
+  iconoDocumentoPdf,
+  iconoDocumentoTxt,
+  iconoDocumentoWord
 } from 'src/assets/icons';
 
 @Injectable({
@@ -146,9 +157,53 @@ export class IconoService {
   public IconoRespuestaRapida() {
     return this.sanitizer.bypassSecurityTrustHtml(iconoRespuestaRapida);
   }
-  
+
   public IconoRetroceder() {
     return this.sanitizer.bypassSecurityTrustHtml(iconoRetroceder);
+  }
+
+  public IconoHoraActivo() {
+    return this.sanitizer.bypassSecurityTrustHtml(iconoHoraActivo);
+  }
+
+  public IconoHora() {
+    return this.sanitizer.bypassSecurityTrustHtml(iconoHora);
+  }
+
+  public IconoPlay() {
+    return this.sanitizer.bypassSecurityTrustHtml(iconoPlay);
+  }
+
+  public IconoPausa() {
+    return this.sanitizer.bypassSecurityTrustHtml(iconoPausa);
+  }
+
+  public IconoDocumentoAudio() {
+    return this.sanitizer.bypassSecurityTrustHtml(iconoDocumentoAudio);
+  }
+
+  public IconoDocumentoComprimido() {
+    return this.sanitizer.bypassSecurityTrustHtml(iconoDocumentoComprimido);
+  }
+
+  public IconoDocumentoExcel() {
+    return this.sanitizer.bypassSecurityTrustHtml(iconoDocumentoExcel);
+  }
+
+  public IconoDocumentoMp3() {
+    return this.sanitizer.bypassSecurityTrustHtml(iconoDocumentoMp3);
+  }
+
+  public IconoDocumentoPdf() {
+    return this.sanitizer.bypassSecurityTrustHtml(iconoDocumentoPdf);
+  }
+
+  public IconoDocumentoTxt() {
+    return this.sanitizer.bypassSecurityTrustHtml(iconoDocumentoTxt);
+  }
+
+  public IconoDocumentoWord() {
+    return this.sanitizer.bypassSecurityTrustHtml(iconoDocumentoWord);
   }
 
 }

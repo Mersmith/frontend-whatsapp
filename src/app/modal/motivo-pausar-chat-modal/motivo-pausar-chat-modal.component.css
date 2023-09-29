@@ -1,0 +1,78 @@
+.contenedor_motivo_pausar_chat_modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.7);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contenedor_elementos_motivo {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.item_filtro_sidebar {
+    padding: 15px 0px;
+    width: 500px;
+}
+
+h5 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #2d373e;
+    margin-bottom: 15px;
+}
+
+.item_filtro_flex {
+    display: flex;
+    flex-direction: column;
+    column-gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+}
+
+label {
+    font-size: 14px;
+    color: #3b4a54;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 10px;
+}
+
+input[type=radio] {
+    color: #3b4a54;
+    width: 20px;
+    height: 20px;
+}
+
+.item_filtro_botones {
+    display: flex;
+    justify-content: flex-end;
+    column-gap: 16px;
+}
+
+
+button {
+    padding: 10px 24px;
+    border-radius: 24px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.boton_cancelar {
+    color: #008069;
+    border: var(--boder-lista-contenedor-contacto);
+}
+
+.boton_aceptar {
+    background-color: #008069;
+    color: white;
+}
