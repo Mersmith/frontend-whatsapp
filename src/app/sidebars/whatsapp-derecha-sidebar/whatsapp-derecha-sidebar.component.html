@@ -1,14 +1,18 @@
 <ng-container *ngIf="contactoSeleccionado; else noContactoSeleccionado">
     <!-- CABECERA DERECHA -->
-    <app-cabecera-derecha-componente
-        [contactoSeleccionado]="contactoSeleccionado"></app-cabecera-derecha-componente>
+    <app-cabecera-derecha-componente [contactoSeleccionado]="contactoSeleccionado"></app-cabecera-derecha-componente>
 
-    <!-- CAJA MENSAJES DERECHA -->
-    <app-caja-mensajes-derecha-componente
-        [contactoSeleccionado]="contactoSeleccionado"></app-caja-mensajes-derecha-componente>
+    <div class="contenedor_caja_mensajes_input">
+        <!-- CAJA MENSAJES DERECHA -->
+        <app-caja-mensajes-derecha-componente class="contenedor_caja_mensajes"
+            [contactoSeleccionado]="contactoSeleccionado"></app-caja-mensajes-derecha-componente>
 
-    <!-- INPUT DERECHA 
-    <app-chat-input-derecha-componente></app-chat-input-derecha-componente>-->
+        <!-- INPUT DERECHA -->
+        <app-chat-input-derecha-componente class="contenedor_input_chat"></app-chat-input-derecha-componente>
+    </div>
+
+    <!-- MODAL VISUALIZADOR MULTIMEDIA -->
+    <app-visualizador-multimedia-modal *ngIf="estadoModalVisualizadorChat"></app-visualizador-multimedia-modal>
 </ng-container>
 
 <ng-template #noContactoSeleccionado>

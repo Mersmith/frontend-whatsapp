@@ -1,0 +1,47 @@
+<div class="contenedor_motivo_pausar_chat_modal">
+
+    <div class="contenedor_elementos_motivo">
+        <ng-container *ngIf="estadoPlayChat; else activarChat">
+
+            <div class="item_filtro_sidebar">
+                <h5>Motivo de pausar chat</h5>
+
+                <!-- MOTIVOS -->
+                <div class="item_filtro_flex">
+                    <label *ngFor="let motivo of motivosDePausa">
+                        <input type="radio" [(ngModel)]="motivoSeleccionado" [value]="motivo" name="motivoPausa" />{{
+                        motivo.tipo }}
+                    </label>
+                </div>
+
+                <!-- BOTONES -->
+                <div class="item_filtro_botones">
+                    <button (click)="cancelarMotivoPausar()" class="boton_cancelar">Cancelar</button>
+                    <button (click)="aceptarMotivoPausar()" class="boton_aceptar">Aceptar</button>
+                </div>
+            </div>
+
+        </ng-container>
+
+        <ng-template #activarChat>
+
+            <div class="item_filtro_sidebar">
+                <h5>Chat pausado</h5>
+
+                <!-- MOTIVO -->
+                <div class="item_filtro_flex">
+                    <label>
+                        <input type="radio" checked />{{motivoSeleccionado.tipo}}
+                    </label>
+                </div>
+
+                <!-- BOTONES -->
+                <div class="item_filtro_botones">
+                    <button (click)="activarChatMotivo()" class="boton_aceptar">Activar</button>
+                </div>
+            </div>
+
+        </ng-template>
+    </div>
+
+</div>

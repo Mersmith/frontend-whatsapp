@@ -54,6 +54,7 @@ export class CajaMensajesDerechaComponenteComponent implements OnChanges, AfterV
     }, 1);
 
     if (this.mensajes) {
+      console.log(this.mensajes);
       this.verificarPropietarioMensajeRespuesta();
     }
   }

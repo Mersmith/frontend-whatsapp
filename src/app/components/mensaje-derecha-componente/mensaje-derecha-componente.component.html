@@ -32,7 +32,7 @@
 
                     <!-- TIPO VIDEO -->
                     <ng-container *ngIf="mensaje.mensaje_respuesta_type === 'video'">
-                        <video preload="auto" class="video_mensaje" controls>
+                        <video preload="auto" class="video_mensaje" controls="false">
                             <source [src]="mensaje.mensaje_respuesta.body" />
                         </video>
                     </ng-container>
@@ -94,19 +94,22 @@
 
         <!-- TIPO IMAGE -->
         <ng-container *ngIf="tipoMensaje === 'image'">
-            <img [src]="mensaje.content" class="imagen_mensaje">
+            <img (click)="abrirMultimedia(mensaje)" [src]="mensaje.content" class="imagen_mensaje">
         </ng-container>
 
         <!-- TIPO VIDEO -->
         <ng-container *ngIf="tipoMensaje === 'video'">
-            <video preload="auto" class="video_mensaje" controls>
+            <video (click)="abrirMultimedia(mensaje)" preload="auto" class="video_mensaje" controls="false">
                 <source [src]="mensaje.content" />
             </video>
+            <div class="icono_play">
+                <i class="icono_play_video" [innerHTML]="iconoPlay"></i>
+            </div>
         </ng-container>
 
         <!-- TIPO STICKER -->
         <ng-container *ngIf="tipoMensaje === 'sticker'">
-            <img [src]="mensaje.content" class="imagen_mensaje">
+            <img (click)="abrirMultimedia(mensaje)" [src]="mensaje.content" class="imagen_mensaje">
         </ng-container>
 
         <!-- TIPO AUDIO -->
@@ -120,7 +123,8 @@
         <ng-container *ngIf="tipoMensaje === 'document'">
             <a [href]="mensaje.content" target="_blank">
                 <img src="" alt="">
-                <p>{{mensaje.content}}</p>
+                <i class="{{mensaje.color}}" [innerHTML]="mensaje.icono"></i>
+                <p>{{mensaje.nombreArchivo}}</p>
                 <span>{{mensaje.img}}</span>
             </a>
         </ng-container>
@@ -153,7 +157,7 @@
                     <img [src]="mensaje.content.id" class="imagen_mensaje">
                 </div>
                 <div *ngIf="mensaje.tipo === 'video' ">
-                    <video preload="auto" class="video_mensaje" controls>
+                    <video preload="auto" preload="auto" class="video_mensaje" controls="false">
                         <source [src]="mensaje.content.id" type="video/mp4" />
                     </video>
                 </div>
@@ -182,26 +186,28 @@
 
         <!-- HORA Y ESTADO MENSAJE -->
         <ng-container>
-            <span>{{ formatearHora(mensaje.hora) }}</span>
-            <ng-container *ngIf="mensaje.envio == 1;">
+            <div>
+                <span>{{ formatearHora(mensaje.hora) }}</span>
+                <ng-container *ngIf="mensaje.envio == 1;">
 
-                <ng-container *ngIf="mensaje.sent > 1;  else elseUnCheck">
-                    <i [ngClass]="{
+                    <ng-container *ngIf="mensaje.sent > 1;  else elseUnCheck">
+                        <i [ngClass]="{
                   'icono_estado_mensaje': true,
                   'enviado': mensaje.sent === 2,
                   'leido': mensaje.sent === 3,
                 }" [innerHTML]="iconoCheckDoble"></i>
-                </ng-container>
+                    </ng-container>
 
-                <ng-template #elseUnCheck>
-                    <i [ngClass]="{
+                    <ng-template #elseUnCheck>
+                        <i [ngClass]="{
                         'icono_estado_mensaje': true,
                         'fallo': mensaje.sent == 0,
                         'recibido': mensaje.sent == 1,
                       }" [innerHTML]="iconoCheck"></i>
-                </ng-template>
+                    </ng-template>
 
-            </ng-container>
+                </ng-container>
+            </div>
         </ng-container>
     </ng-container>
 </div>

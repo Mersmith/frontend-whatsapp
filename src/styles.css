@@ -173,6 +173,55 @@ input[type=text]::placeholder {
     height: 22px;
 }
 
+/* ICONOS DOCUMENTOS */
+.icono_documento_txt svg {
+    fill: #79909B;
+    width: 28px;
+    height: 28px;
+}
+
+.icono_documento_pdf svg {
+    fill: #F34646;
+    width: 28px;
+    height: 28px;
+}
+
+.icono_documento_docx svg {
+    fill: #60AAF6;
+    width: 28px;
+    height: 28px;
+}
+
+.icono_documento_xlsx svg {
+    fill: #57D28B;
+    width: 28px;
+    height: 28px;
+}
+
+.icono_documento_mp3 svg {
+    fill: #FA6533;
+    width: 28px;
+    height: 28px;
+}
+
+.icono_documento_ogg svg {
+    fill: #6F8171;
+    width: 28px;
+    height: 28px;
+}
+
+.icono_documento_comprimido svg {
+    fill: #7F66FF;
+    width: 28px;
+    height: 28px;
+}
+
+.icono_play_video svg {
+    fill: white;
+    width: 28px;
+    height: 28px;
+}
+
 /* CONTENEDOR OPCIONES */
 .contenedor_opciones {
     position: absolute;

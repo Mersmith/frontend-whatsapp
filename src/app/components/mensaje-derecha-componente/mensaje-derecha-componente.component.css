@@ -54,16 +54,32 @@ span {
 
 /* ESTILOS MULTIMEDIA */
 .imagen_mensaje {
-    /*width: 100px;*/
     height: 100px;
 }
 
 .video_mensaje {
-    /*width: 100px;*/
     height: 100px;
 }
 
+.video_mensaje::-webkit-media-controls {
+    display: none;
+}
+
+.icono_play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.472);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .audio_mensaje {
-    /*width: 100px;*/
     height: 100px;
 }

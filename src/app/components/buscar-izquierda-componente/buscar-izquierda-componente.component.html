@@ -1,8 +1,9 @@
 <div class="contenedor_whatsapp_buscar_izquierda">
     <!-- CONTENEDOR INPUT BUSCAR -->
     <div class="contenedor_buscar_chat_input">
-        <i class="icono_primero_secundario" [innerHTML]="iconoBuscar"></i>
-        <input type="text" placeholder="Busca un chat o inicia uno nuevo.">
+        <i class="icono_primero_secundario" [innerHTML]="iconoBuscar" (click)="buscarFiltroPorNumero()"></i>
+        <input type="text" [(ngModel)]="numeroInput" placeholder="Busca un chat o inicia uno nuevo." >
+        <i *ngIf="numeroInput" class="icono_primero_secundario" [innerHTML]="iconoCerrar" (click)="borrarFiltroPorNumero()"></i>
     </div>
 
     <!-- CONTENEDOR FILTRO COMPLEJO -->

@@ -1,6 +1,7 @@
 import { Component, HostListener, ViewChild, ElementRef } from '@angular/core';
 import { IconoService } from 'src/app/services/icono-service/icono.service';
 import { ToogleSidebarService } from 'src/app/services/toogle-sidebar-servide/toogle-sidebar.service';
+import { FiltroRapidoCelularService } from 'src/app/services/filtro-rapido-celular/filtro-rapido-celular.service';
 
 @Component({
   selector: 'app-buscar-izquierda-componente',
@@ -17,8 +18,11 @@ export class BuscarIzquierdaComponenteComponent {
   public iconoGrupo = this.iconoService.IconoGrupo();
   public iconoEtiqueta = this.iconoService.IconoEtiqueta();
   public iconoFiltroComplejo = this.iconoService.IconoFiltroComplejo();
+  public iconoCerrar = this.iconoService.IconoCerrar();
 
   estadoOpcionesChats: Boolean = false;
+
+  numeroInput = '';
 
   @ViewChild('contenedorOpcionesChats', { static: true })
   contenedorOpcionesChatsRef!: ElementRef;
@@ -26,13 +30,25 @@ export class BuscarIzquierdaComponenteComponent {
   constructor(
     private iconoService: IconoService,
     private toogleSidebarService: ToogleSidebarService,
-  ) {}
+    private filtroRapidoCelularService: FiltroRapidoCelularService
+  ) { }
+
+  buscarFiltroPorNumero() {
+    if (this.numeroInput) {
+      this.filtroRapidoCelularService.numeroFiltroContactoSubject.next(this.numeroInput);
+    }
+  }
+
+  borrarFiltroPorNumero() {
+    this.numeroInput = '';
+    this.filtroRapidoCelularService.numeroFiltroContactoSubject.next(this.numeroInput);
+  }
 
   toggleEstadoOpcionesChats() {
     this.estadoOpcionesChats = !this.estadoOpcionesChats;
   }
 
-  toogleFiltroSidebar(){
+  toogleFiltroSidebar() {
     if (this.toogleSidebarService.obtenerEstadoContenedor(4)) {
       this.toogleSidebarService.ocultarContenedor(4);
     } else {

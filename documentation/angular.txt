@@ -17,6 +17,9 @@ ng generate component components/caja-mensajes-derecha-componente
 ng generate component components/mensaje-derecha-componente
 ng generate component components/chat-input-derecha-componente
 
+ng generate component modal/motivo-pausar-chat-modal
+ng generate component modal/visualizador-multimedia-modal
+
 ng generate service services/contacto-seleccionado
 ng generate service services/ToogleSidebar
 ng generate service services/ToogleOpciones
@@ -25,6 +28,9 @@ ng g s services/icono-service/icono
 ng g s services/mensaje-rapido-seleccionado/mensaje-rapido-seleccionado
 ng g s services/sesion/sesion
 ng g s services/lista-contactos-chat/lista-contactos-chat
+ng g s services/motivo_pausar_chat/motivo_pausar_chat
+ng g s services/visualizador-multimedia/visualizador-multimedia
+ng g s services/filtro-rapido-celular/filtro-rapido-celular
 
 ng generate component sidebars/filtro-sidebar
 ng generate component sidebars/plantillas-mensajes-sidebar

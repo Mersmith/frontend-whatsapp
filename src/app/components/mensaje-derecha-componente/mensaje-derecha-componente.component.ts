@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { format } from 'date-fns';
 import { es } from 'date-fns/locale';
 import { IconoService } from 'src/app/services/icono-service/icono.service';
+import { VisualizadorMultimediaService } from 'src/app/services/visualizador-multimedia/visualizador-multimedia.service';
 
 @Component({
   selector: 'app-mensaje-derecha-componente',
@@ -12,6 +13,14 @@ export class MensajeDerechaComponenteComponent implements OnInit {
 
   public iconoCheck = this.iconoService.IconoCheck();
   public iconoCheckDoble = this.iconoService.IconoCheckDoble();
+  public iconoDocumentoTxt = this.iconoService.IconoDocumentoTxt();
+  public iconoDocumentoPdf = this.iconoService.IconoDocumentoPdf();
+  public iconoDocumentoWord = this.iconoService.IconoDocumentoWord();
+  public iconoDocumentoExcel = this.iconoService.IconoDocumentoExcel();
+  public iconoDocumentoComprimido = this.iconoService.IconoDocumentoComprimido();
+  public iconoDocumentoMp3 = this.iconoService.IconoDocumentoMp3();
+  public iconoDocumentoAudio = this.iconoService.IconoDocumentoAudio();
+  public iconoPlay = this.iconoService.IconoPlay();
 
   @Input() mensaje: any;
   @Input() mensajeRespuesta: boolean = false;
@@ -19,7 +28,8 @@ export class MensajeDerechaComponenteComponent implements OnInit {
   tipoMensaje: any = '';
 
   constructor(
-    private iconoService: IconoService
+    private iconoService: IconoService,
+    private visualizadorMultimediaService: VisualizadorMultimediaService,
   ) { }
 
   formatearHora(timeString: string): string {
@@ -32,6 +42,54 @@ export class MensajeDerechaComponenteComponent implements OnInit {
 
   ngOnInit(): void {
     this.tipoMensaje = this.mensaje.type;
+
+    if (this.tipoMensaje === 'document') {
+      const url = this.mensaje.content;
+
+      const extension = this.getFileExtensionFromUrl(url);
+      this.mensaje.extension = extension;
+
+      const partes = url.split('/');
+      this.mensaje.nombreArchivo = partes[partes.length - 1];
+
+      if (extension === 'txt') {
+        this.mensaje.icono = this.iconoDocumentoTxt;
+        this.mensaje.color = "icono_documento_txt";
+      } else if (extension === 'pdf') {
+        this.mensaje.icono = this.iconoDocumentoPdf;
+        this.mensaje.color = "icono_documento_pdf";
+      } else if (extension === 'docx') {
+        this.mensaje.icono = this.iconoDocumentoWord;
+        this.mensaje.color = "icono_documento_docx";
+      } else if (extension === 'xlsx') {
+        this.mensaje.icono = this.iconoDocumentoExcel;
+        this.mensaje.color = "icono_documento_xlsx";
+      } else if (extension === 'mp3') {
+        this.mensaje.icono = this.iconoDocumentoExcel;
+        this.mensaje.color = "icono_documento_mp3";
+      } else if (extension === 'ogg') {
+        this.mensaje.icono = this.iconoDocumentoAudio;
+        this.mensaje.color = "icono_documento_ogg";
+      } else if (extension === 'rar' || extension === 'zip') {
+        this.mensaje.icono = this.iconoDocumentoComprimido;
+        this.mensaje.color = "icono_documento_comprimido";
+      } else {
+        this.mensaje.icono = this.iconoDocumentoTxt;
+      }
+    }
+  }
+
+  getFileExtensionFromUrl(url: string): string {
+    const segments = url.split('.');
+    if (segments.length > 1) {
+      return segments.pop()!.toLowerCase();
+    }
+    return '';
+  }
+
+  abrirMultimedia(mensaje: any) {
+    this.visualizadorMultimediaService.setMultimediaMensajeChat(mensaje);
+    this.visualizadorMultimediaService.setEstadoModalVisualizadorChat(true);
   }
 
   scrollMensajeContexto(context: string | null): void {

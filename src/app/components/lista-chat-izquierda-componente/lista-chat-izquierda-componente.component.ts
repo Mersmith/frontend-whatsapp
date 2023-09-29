@@ -6,6 +6,7 @@ import { es } from 'date-fns/locale';
 import { ChatService } from 'src/app/services/chat-service/chat.service';
 import { IconoService } from 'src/app/services/icono-service/icono.service';
 import { SesionService } from 'src/app/services/sesion/sesion.service';
+import { FiltroRapidoCelularService } from 'src/app/services/filtro-rapido-celular/filtro-rapido-celular.service';
 
 @Component({
   selector: 'app-lista-chat-izquierda-componente',
@@ -24,13 +25,27 @@ export class ListaChatIzquierdaComponenteComponent implements OnInit {
     private contactoSeleccionadoService: ContactoSeleccionadoService,
     private chatService: ChatService,
     private iconoService: IconoService,
-    private sesionService: SesionService
+    private sesionService: SesionService,
+    private filtroRapidoCelularService: FiltroRapidoCelularService
   ) { }
 
   ngOnInit(): void {
-    if(this.sesionService.isAuthenticatedUser()){
+    if (this.sesionService.isAuthenticatedUser()) {
       this.contactoItems = this.chatService.getMisSalas();
     }
+
+    // FILTRO RÁPIDO POR NÚMERO DE CELULAR
+    this.filtroRapidoCelularService.numeroFiltroContactoSubject.subscribe((numeroFiltroContacto: string) => {
+      if (numeroFiltroContacto) {
+        const contactosFiltrados = this.chatService.getMisSalas().filter((contacto) => {
+          return contacto.number.toLowerCase().includes(numeroFiltroContacto.toLowerCase());
+        });
+        this.contactoItems = contactosFiltrados;
+      } else {
+        this.contactoItems = this.chatService.getMisSalas();
+      }
+    });
+
   }
 
   seleccionarContacto(contacto: ContactoInteface): void {
